@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Basic container styles */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #113a6b; /* Dark blue */
+  padding: 10px 20px;
+  position: relative; /* For action bar positioning */
+}
+
+.logo h1 {
+  color: #fff;
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  padding: 5px 10px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #00c4ff; /* Highlight color */
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.register-btn, .login-btn {
+  background-color: #00c4ff;
+  border: none;
+  padding: 5px 15px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+}
+
+.register-btn:hover, .login-btn:hover {
+  background-color: #009bcc; /* Darker blue on hover */
+}
+
+/* Action bar that appears above the header */
+.action-bar {
+  position: absolute;
+  top: -40px; /* Above the header */
+  left: 0;
+  width: 100%;
+  background-color: #009bcc;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.action-bar p {
+  margin: 0;
+}
+
+
+/* --  HomeSlider --  */
+
+.slider-container {
+  width: 100%;
+  height: 500px; /* Adjust height as per your design */
+  position: relative;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+
+.swiper-pagination-bullet {
+  background-color: white; /* Customize bullet colors */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: white; /* Customize arrow color */
+}
+
+.swiper-slide div {
+  position: relative;
+  color: white;
+  text-align: left;
+}
+
+.swiper-slide h2 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.swiper-slide p {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.swiper-pagination-bullet {
+  background: #c23939; /* Default bullet color */
+  opacity: 1; /* Ensure the bullets are fully visible */
+  width: 12px; /* Bullet width */
+  height: 12px; /* Bullet height */
+  margin: 0 4px; /* Space between bullets */
+  border-radius: 50%; /* Make them circular */
+  transition: background 0.3s; /* Transition for hover effect */
+}
+
+/* Active bullet style */
+.swiper-pagination-bullet-active {
+  background: #ff0606; /* Active bullet color */
+  transform: scale(1.2); /* Scale effect on active bullet */
+}
+
+/* Optional: Add hover effect for bullets */
+.swiper-pagination-bullet:hover {
+  background: #aaa; /* Color on hover */
+}
