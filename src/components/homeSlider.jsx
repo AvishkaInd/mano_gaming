@@ -38,7 +38,16 @@ const HomeSlider = () => {
                     pagination={{ clickable: true }}
                     autoplay={{ delay: 3000 }}
                     loop={true}
-                    className="mySwiper h-100"
+                    draggable={true}
+                    className="mySwiper h-96"
+                    style={{
+                        "--swiper-pagination-color": "#FFBA08",
+                        "--swiper-pagination-bullet-inactive-color": "#999999",
+                        "--swiper-pagination-bullet-inactive-opacity": "1",
+                        "--swiper-pagination-bullet-size": "6px",
+                        "--swiper-pagination-bullet-widht": "15px",
+                        "--swiper-pagination-bullet-horizontal-gap": "8px"
+                    }}
                 >
                     {slides.map((slide, index) => (
                         <SwiperSlide key={index}>
