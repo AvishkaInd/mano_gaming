@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pagination, Autoplay, EffectFade} from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
@@ -33,13 +33,12 @@ const HomeSlider = () => {
         <div>
             <div className="slider-container">
                 <Swiper
-                    modules={[ Pagination, Autoplay, EffectFade]}
+                    modules={[Pagination, Autoplay]}
                     spaceBetween={30}
                     pagination={{ clickable: true }}
                     autoplay={{ delay: 3000 }}
                     loop={true}
-                    className="mySwiper h-96"
-                    effect="fade"
+                    className="mySwiper h-100"
                 >
                     {slides.map((slide, index) => (
                         <SwiperSlide key={index}>
