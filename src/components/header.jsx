@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa'; // For hamburger icon
-import logo_white from "../images/logo/logo--black.png";
+import logo_white from "../images/logo/logo-white.webp";
 
 const Header = () => {
     const [activeMenu, setActiveMenu] = useState(null);
     const [timeoutId, setTimeoutId] = useState(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false); // For mobile menu toggle
+    const [selectedMenu, setSelectedMenu] = useState(null);
 
     const handleMouseEnter = (menu) => {
         clearTimeout(timeoutId);
@@ -22,6 +23,11 @@ const Header = () => {
 
     const toggleMobileMenu = () => {
         setIsMenuOpen(!isMenuOpen);
+        setSelectedMenu(null);
+    };
+
+    const handleMenuItemClick = (item) => {
+        setSelectedMenu(item); // Update selected menu
     };
 
     const submenus = {
@@ -40,14 +46,14 @@ const Header = () => {
             <nav className="top-0 nav_bar_wrap bg-blue-800  shadow-lg">
                 <div className="nav_bar_content flex justify-between px-4 md:px-16 items-center relative z-40">
                     <div className="flex">
-                        <img src={logo_white} className="w-15 h-10" alt="Logo"/>
+                        <img src={logo_white} className="w-15 h-12" alt="Logo"/>
                         <ul className={`lg:flex space-x-4 hidden ${isMenuOpen ? 'block' : 'hidden'} ml-12 mt-2 absolute md:static left-0 top-full w-full md:w-auto bg-blue-800 md:bg-transparent`}>
                             {['Popular', 'Physical Education', 'Real Man', 'Electronic', 'Lottery Ticket', 'Chess Board', 'Fishing'].map((item, index) => (
                                 <li
                                     key={index}
                                     onMouseEnter={() => handleMouseEnter(item)}
                                     onMouseLeave={handleMouseLeave}
-                                    className="relative group cursor-pointer py-2 md:py-0 text-center text-white"
+                                    className="relative group cursor-pointer ml-4 py-2 md:py-0 text-center text-white"
                                 >
                                     {item}
                                 </li>
@@ -71,25 +77,30 @@ const Header = () => {
                         <button className="nav_bar_login-btn px-2 py-2">Sign In </button>
                     </div>
 
-                    <AnimatePresence>
+                    <AnimatePresence  mode="wait">
                         {activeMenu && (
                             <motion.div
-                                initial={{opacity: 0, height: 0}}
-                                animate={{opacity: 1, height: 'auto'}}
-                                exit={{opacity: 0, height: 0}}
-                                transition={{
-                                    duration: 0.2,
-                                    ease: [0.6, -0.05, 0.01, 0.99],
-                                }}
-                                className="absolute left-0 top-full w-full bg-blue-900 py-4 shadow-lg"
+                                className="absolute left-0 top-full w-full nav_bar_action_list shadow-lg"
+                                initial={{opacity: 1, height: 0}}
+                                animate={{opacity: 1, height: 'auto', minHeight: '200px'}}
+                                exit={{opacity: 1, height: 0}} // Collapse height to 0 on exit
                                 onMouseEnter={() => clearTimeout(timeoutId)}
                                 onMouseLeave={handleMouseLeave}
+                                transition={{
+                                    duration: 0.3, // Set the duration for enter and exit animations
+                                }}
                             >
                                 <div className="container mx-auto flex justify-around">
                                     {submenus[activeMenu]?.map((submenuItem, submenuIndex) => (
                                         <div key={submenuIndex} className="text-center text-white">
-                                            <img src={`/path-to-image${submenuIndex}`} alt={submenuItem}
-                                                 className="h-12 w-12 mx-auto"/>
+                                            <motion.img
+                                                src={`/path-to-image${submenuIndex}`}
+                                                alt={submenuItem}
+                                                className="h-12 w-12 mx-auto"
+                                                initial={{opacity: 0}}
+                                                animate={{opacity: 1}}
+                                                transition={{duration: 0.8}}
+                                            />
                                             <p>{submenuItem}</p>
                                         </div>
                                     ))}
@@ -103,31 +114,53 @@ const Header = () => {
                                 animate={{opacity: 1}}
                                 exit={{opacity: 0}}
                                 transition={{duration: 0.3}}
-                                className="fixed inset-0 bg-blue-900 bg-opacity-95 flex flex-col items-center justify-center space-y-8 z-50"
+                                className="fixed inset-0 bg-blue-900 bg-opacity-95 grid grid-cols-1 md:grid-cols-2"
                             >
-                                <div className="lg:hidden float-end">
-                                    <button onClick={toggleMobileMenu}>
-                                        {isMenuOpen ? <FaTimes className="text-white text-2xl"/> :
-                                            <FaBars className="text-white text-2xl"/>}
-                                    </button>
+                               <div className="nav_bar_tablet_nav_item_wrapper">
+
+                                   {selectedMenu && (
+                                       <div className="submenu">
+                                           <h2 className="text-2xl">{selectedMenu} Submenu</h2>
+                                           <ul>
+                                               {submenus[selectedMenu].map((game, index) => (
+                                                   <li key={index} className="text-lg">
+                                                       {game}
+                                                   </li>
+                                               ))}
+                                           </ul>
+                                       </div>
+                                   )}
+
+                               </div>
+                                <div
+                                    className="nav_bar_tablet_nav_link_wrapper p-4 flex flex-col  space-y-8 z-50">
+
+                                    <div className="lg:hidden float-end">
+                                        <button onClick={toggleMobileMenu}>
+                                            {isMenuOpen ? <FaTimes className="float-end text-2xl"/> :
+                                                <FaBars className="text-white text-2xl"/>}
+                                        </button>
+                                    </div>
+                                    <ul className="flex flex-col items-center space-y-6  text-2xl">
+                                        {['Popular', 'Physical Education', 'Real Man', 'Electronic', 'Lottery Ticket', 'Chess Board', 'Fishing'].map((item, index) => (
+                                            <li
+                                                key={index}
+                                                onClick={() => handleMenuItemClick(item)}
+                                                className="cursor-pointer"
+                                            >
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <div className=" grid grid-cols-1 space-y-4">
+                                        <button className="bg-themeBlue text-themeYellow px-6 py-3 rounded  text-lg">Register
+                                        </button>
+                                        <button className="bg-transparent border-themeBlue border-2 px-6 py-3 rounded  text-lg">Login
+                                        </button>
+                                    </div>
                                 </div>
-                                <ul className="flex flex-col items-center space-y-6 text-white text-2xl">
-                                    {['Popular', 'Physical Education', 'Real Man', 'Electronic', 'Lottery Ticket', 'Chess Board', 'Fishing'].map((item, index) => (
-                                        <li
-                                            key={index}
-                                            onClick={toggleMobileMenu} // Close menu on item click
-                                            className="cursor-pointer"
-                                        >
-                                            {item}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <div className="flex flex-col space-y-4">
-                                    <button className="bg-blue-500 px-6 py-3 rounded text-white text-lg">Registered
-                                    </button>
-                                    <button className="bg-blue-500 px-6 py-3 rounded text-white text-lg">Live in
-                                    </button>
-                                </div>
+
+
                             </motion.div>
                         )}
                     </AnimatePresence>
