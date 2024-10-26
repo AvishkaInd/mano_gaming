@@ -1,22 +1,37 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa'; // For hamburger icon
 import logo_white from "../images/logo/logo-white.webp";
+import { Submenu } from "../schema/index";
 
 const Header = () => {
     const [activeMenu, setActiveMenu] = useState(null);
     const [timeoutId, setTimeoutId] = useState(null);
-    const [isMenuOpen, setIsMenuOpen] = useState(false); // For mobile menu toggle
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [selectedMenu, setSelectedMenu] = useState(null);
+    const [prevMenu, setPrevMenu] = useState(null);
+
+    useEffect(() => {
+        // Reset `prevMenu` after a delay to avoid visual conflict
+        if (prevMenu) {
+            const id = setTimeout(() => setPrevMenu(null), 200);
+            return () => clearTimeout(id);
+        }
+    }, [prevMenu]);
 
     const handleMouseEnter = (menu) => {
         clearTimeout(timeoutId);
-        setActiveMenu(menu);
+        if (menu !== activeMenu) {
+            setPrevMenu(activeMenu); // Set prevMenu to the current activeMenu
+            setActiveMenu(menu);
+        }
     };
+
 
     const handleMouseLeave = () => {
         const id = setTimeout(() => {
             setActiveMenu(null);
+            setPrevMenu(null);
         }, 200);
         setTimeoutId(id);
     };
@@ -78,36 +93,58 @@ const Header = () => {
                     </div>
 
                     <AnimatePresence  mode="wait">
-                        {activeMenu && (
+                        {prevMenu && (
                             <motion.div
-                                className="absolute left-0 top-full w-full nav_bar_action_list shadow-lg"
-                                initial={{opacity: 1, height: 0}}
-                                animate={{opacity: 1, height: 'auto', minHeight: '200px'}}
-                                exit={{opacity: 1, height: 0}} // Collapse height to 0 on exit
-                                onMouseEnter={() => clearTimeout(timeoutId)}
-                                onMouseLeave={handleMouseLeave}
-                                transition={{
-                                    duration: 0.3, // Set the duration for enter and exit animations
-                                }}
+                                className="absolute left-0 top-full w-full nav_bar_action_list shadow-lg z-70"
+                                initial={{ opacity: 1, height: 'auto' }}
+                                animate={{ opacity: 1,zIndex:100}}
+                                exit={{ opacity: 1, height: 0 }}
+                                transition={{ duration: 2 }}
                             >
                                 <div className="container mx-auto flex justify-around">
-                                    {submenus[activeMenu]?.map((submenuItem, submenuIndex) => (
-                                        <div key={submenuIndex} className="text-center text-white">
+                                    {Submenu[prevMenu]?.map((submenuItem, submenuIndex) => (
+                                        <div key={submenuIndex} className="text-center text-white mt-2">
                                             <motion.img
-                                                src={`/path-to-image${submenuIndex}`}
-                                                alt={submenuItem}
-                                                className="h-12 w-12 mx-auto"
-                                                initial={{opacity: 0}}
-                                                animate={{opacity: 1}}
-                                                transition={{duration: 0.8}}
+                                                src={submenuItem.image}
+                                                alt={submenuItem.name}
+                                                className="h-28 w-28 mx-auto"
+                                                initial={{ opacity: 0.5 }}
+                                                animate={{ opacity: 0 }}
+                                                transition={{ duration: 0.8 }}
                                             />
-                                            <p>{submenuItem}</p>
+                                            <p>{submenuItem.name}</p>
                                         </div>
                                     ))}
                                 </div>
                             </motion.div>
                         )}
-
+                        {activeMenu &&  (
+                            <motion.div
+                                className="absolute left-0 top-full w-full nav_bar_action_list shadow-lg"
+                                initial={{ opacity: 1, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto', minHeight: '200px' }}
+                                exit={{ opacity: 1, height: 0 }}
+                                onMouseEnter={() => clearTimeout(timeoutId)}
+                                onMouseLeave={handleMouseLeave}
+                                transition={{ duration: 0.4 }}
+                            >
+                                <div className="container mx-auto flex justify-around">
+                                    {Submenu[activeMenu]?.map((submenuItem, submenuIndex) => (
+                                        <div key={submenuIndex} className="text-center text-white mt-2">
+                                            <motion.img
+                                                src={submenuItem.image}
+                                                alt={submenuItem.name}
+                                                className="h-28 w-28 mx-auto"
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ duration: 0.5 }}
+                                            />
+                                            <p>{submenuItem.name}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        )}
                         {isMenuOpen && (
                             <motion.div
                                 initial={{opacity: 0}}
@@ -121,16 +158,18 @@ const Header = () => {
                                    {selectedMenu && (
                                        <div className="submenu">
                                            <h2 className="text-2xl">{selectedMenu} Submenu</h2>
-                                           <ul>
+                                           <ul className="grid grid-cols-1 md:grid-cols-2 px-2 ml-6">
                                                {submenus[selectedMenu].map((game, index) => (
-                                                   <li key={index} className="text-lg">
+                                                   <li
+                                                       key={index}
+                                                       className="border border-themeYellow rounded-lg w-40 h-40 p-4 text-themeYellow shadow-md text-center text-lg bg-transparent flex items-center justify-center"
+                                                   >
                                                        {game}
                                                    </li>
                                                ))}
                                            </ul>
                                        </div>
                                    )}
-
                                </div>
                                 <div
                                     className="nav_bar_tablet_nav_link_wrapper p-4 flex flex-col  space-y-8 z-50">
@@ -146,7 +185,7 @@ const Header = () => {
                                             <li
                                                 key={index}
                                                 onClick={() => handleMenuItemClick(item)}
-                                                className="cursor-pointer"
+                                                className={`cursor-pointer ${selectedMenu === item ? 'underline font-bold' : ''}`} // Apply active style
                                             >
                                                 {item}
                                             </li>
