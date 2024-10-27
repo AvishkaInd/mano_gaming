@@ -56,7 +56,7 @@ const Header = () => {
     };
 
     return (
-        <div className="nav_wrapper">
+        <div className="nav_wrapper z-20">
             <div className="nav_bar_top"></div>
             <nav className="top-0 nav_bar_wrap bg-blue-800  shadow-lg">
                 <div className="nav_bar_content flex justify-between px-4 md:px-16 items-center relative z-40">
@@ -107,7 +107,7 @@ const Header = () => {
                                             <motion.img
                                                 src={submenuItem.image}
                                                 alt={submenuItem.name}
-                                                className="h-28 w-28 mx-auto"
+                                                className="h-32 w-32 mx-auto"
                                                 initial={{ opacity: 0.5 }}
                                                 animate={{ opacity: 0 }}
                                                 transition={{ duration: 0.8 }}
@@ -123,7 +123,7 @@ const Header = () => {
                                 className="absolute left-0 top-full w-full nav_bar_action_list shadow-lg"
                                 initial={{ opacity: 1, height: 0 }}
                                 animate={{ opacity: 1, height: 'auto', minHeight: '200px' }}
-                                exit={{ opacity: 1, height: 0 }}
+                                exit={{ opacity: 0, height: 0 }}
                                 onMouseEnter={() => clearTimeout(timeoutId)}
                                 onMouseLeave={handleMouseLeave}
                                 transition={{ duration: 0.4 }}
@@ -134,7 +134,7 @@ const Header = () => {
                                             <motion.img
                                                 src={submenuItem.image}
                                                 alt={submenuItem.name}
-                                                className="h-28 w-28 mx-auto"
+                                                className="h-32 w-32 mx-auto"
                                                 initial={{ opacity: 0 }}
                                                 animate={{ opacity: 1 }}
                                                 transition={{ duration: 0.5 }}
@@ -153,18 +153,25 @@ const Header = () => {
                                 transition={{duration: 0.3}}
                                 className="fixed inset-0 bg-blue-900 bg-opacity-95 grid grid-cols-1 md:grid-cols-2"
                             >
-                               <div className="nav_bar_tablet_nav_item_wrapper">
+                               <div className="nav_bar_tablet_nav_item_wrapper hidden md:block">
 
                                    {selectedMenu && (
                                        <div className="submenu">
                                            <h2 className="text-2xl">{selectedMenu} Submenu</h2>
                                            <ul className="grid grid-cols-1 md:grid-cols-2 px-2 ml-6">
-                                               {submenus[selectedMenu].map((game, index) => (
+                                               {Submenu[selectedMenu].map((game, index) => (
                                                    <li
                                                        key={index}
-                                                       className="border border-themeYellow rounded-lg w-40 h-40 p-4 text-themeYellow shadow-md text-center text-lg bg-transparent flex items-center justify-center"
+                                                       className="overflow-y-scroll w-40 h-40 p-4 text-themeYellow shadow-md text-center text-lg bg-transparent flex items-center justify-center"
                                                    >
-                                                       {game}
+                                                       <motion.img
+                                                           src={game.image}
+                                                           alt={game.name}
+                                                           className="h-38 w-38 mx-auto"
+                                                           initial={{opacity: 0}}
+                                                           animate={{opacity: 1}}
+                                                           transition={{duration: 0.5}}
+                                                       />
                                                    </li>
                                                ))}
                                            </ul>
@@ -172,12 +179,12 @@ const Header = () => {
                                    )}
                                </div>
                                 <div
-                                    className="nav_bar_tablet_nav_link_wrapper p-4 flex flex-col  space-y-8 z-50">
+                                    className="nav_bar_tablet_nav_link_wrapper p-4 flex flex-col overflow-y-scroll md:overflow-y-hidden space-y-8 z-50">
 
-                                    <div className="lg:hidden float-end">
-                                        <button onClick={toggleMobileMenu}>
-                                            {isMenuOpen ? <FaTimes className="float-end text-2xl"/> :
-                                                <FaBars className="text-white text-2xl"/>}
+                                    <div className="lg:hidden float-end justify-end w-full" style={{textAlign:'end'}}>
+                                        <button onClick={toggleMobileMenu} className="justify-end">
+                                            {isMenuOpen ? <FaTimes className="float-end text-2xl text-end"/> :
+                                                <FaBars className="text-white text-2xl text-end"/>}
                                         </button>
                                     </div>
                                     <ul className="flex flex-col items-center space-y-6  text-2xl">
@@ -188,7 +195,31 @@ const Header = () => {
                                                 className={`cursor-pointer ${selectedMenu === item ? 'underline font-bold' : ''}`} // Apply active style
                                             >
                                                 {item}
+
+                                                {selectedMenu === item && (
+                                                    <div className="flex items-center justify-center md:hidden w-100">
+                                                        {Submenu[selectedMenu].map((game, index) => (
+                                                            <li
+                                                                key={index}
+                                                                className="overflow-y-scroll w-40 h-40 p-4 text-themeYellow shadow-md text-center text-lg bg-transparent flex items-center justify-center"
+                                                            >
+                                                                    <motion.img
+                                                                        src={game.image}
+                                                                        alt={game.name}
+                                                                        className="h-32 w-32 mx-auto"
+                                                                        initial={{opacity: 0}}
+                                                                        animate={{opacity: 1}}
+                                                                        transition={{duration: 0.5}}
+                                                                    />
+
+                                                            </li>
+                                                        ))}
+                                                    </div>
+                                                )}
+
                                             </li>
+
+
                                         ))}
                                     </ul>
                                     <div className=" grid grid-cols-1 space-y-4">

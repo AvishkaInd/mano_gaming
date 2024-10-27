@@ -4,6 +4,7 @@ function App() {
     return (
         <div className='body_wrapper'>
             <Header/>
+            <Slider/>
             <br/>
             <br/>
             <br/>
@@ -14,7 +15,7 @@ function App() {
             <br/>
             <br/>
             <br/>
-                <h1 className="text-amber-50">asdasd</h1>
+                <h1 className="text-white">aasdsdasd</h1>
             <br/>
             <br/>
             <br/>

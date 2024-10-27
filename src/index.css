@@ -8,6 +8,10 @@
   --white-color: #fff;
 }
 
+*{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -43,7 +47,7 @@ code {
 }
 
 .body_wrapper{
-  background: #002147;
+  background: var(--blue-color);
   width: 100%;
   padding: 0;
 }
@@ -192,12 +196,41 @@ code {
   margin: 0;
 }
 
-
 /* --  HomeSlider --  */
+
+.mySwiper .swiper-pagination-bullet-active {
+  width: 30px; /* Wider width for active bullet */
+  height: 8px; /* Match the height of other bullets */
+  border-radius: 4px;
+}
+
+.mySwiper .swiper-pagination {
+  margin-bottom: 30px; /* Adjust the value as needed */
+}
+
+@media (max-width: 768px) {
+  .mySwiper .swiper-pagination {
+    display: none;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee linear infinite;
+}
 
 .slider-container {
   width: 100%;
-  height: 500px; /* Adjust height as per your design */
   position: relative;
 }
 
@@ -211,7 +244,7 @@ code {
 }
 
 .swiper-pagination-bullet {
-  background-color: white; /* Customize bullet colors */
+  background-color: white;
 }
 
 .swiper-button-next,
