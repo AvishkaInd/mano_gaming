@@ -1,10 +1,11 @@
 import './App.css';
-import { Header, Slider } from "./components/index";
+import { Header, Slider, TabSlider } from "./components/index";
 function App() {
     return (
         <div className='body_wrapper'>
             <Header/>
             <Slider/>
+                {/*<TabSlider/>*/}
             <br/>
             <br/>
             <br/>
@@ -12,6 +13,7 @@ function App() {
             <br/>
             <br/>
             <br/>
+
             <br/>
             <br/>
             <br/>

@@ -9,10 +9,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 // Import required images
-import banner_one from "../images/ui-images/banner1.webp";
-import banner_two from "../images/ui-images/banner2.webp";
-import banner_three from "../images/ui-images/banner3.webp";
-import banner_four from "../images/ui-images/banner4.webp";
+import banner_one from "../images/ui-images/banner1.jpg";
+import banner_two from "../images/ui-images/banner2.png";
+import banner_three from "../images/ui-images/banner3.jpg";
+import banner_four from "../images/ui-images/banner4.jpg";
 import banner_five from "../images/ui-images/banner5.webp";
 import banner_six from "../images/ui-images/banner6.webp";
 import banner_seven from "../images/ui-images/banner7.webp";
@@ -23,8 +23,20 @@ import banner_eleven from "../images/ui-images/banner11.webp";
 import banner_twelve from "../images/ui-images/banner12.webp";
 import banner_thirteen from "../images/ui-images/banner13.webp";
 import banner_fourteen from "../images/ui-images/banner14.webp";
+import banner_fifteen from "../images/ui-images/banner15.png";
+import banner_sixteen from "../images/ui-images/banner16.png";
 
 const slides = [
+    {
+        image: banner_fifteen,
+        title: 'Slide 1 Title',
+        subtitle: 'Slide 1 Subtitle'
+    },
+    {
+        image: banner_sixteen,
+        title: 'Slide 1 Title',
+        subtitle: 'Slide 1 Subtitle'
+    },
     {
         image: banner_one,
         title: 'Slide 1 Title',
@@ -110,7 +122,7 @@ const HomeSlider = () => {
             <br/>
             <br/>
             <br/>
-            <div className="slider-container">
+            <div className="slider-container ">
                 <Swiper
                     modules={[Pagination, Autoplay]}
                     spaceBetween={30}
@@ -132,7 +144,7 @@ const HomeSlider = () => {
                     {slides.map((slide, index) => (
                         <SwiperSlide key={index}>
                             <div
-                                className="w-full h-64 sm:h-80 md:h-96 lg:h-[600px] bg-cover bg-center"
+                                className="w-full mt-2 lg:mt-4 h-32 sm:h-80 md:h-96 lg:h-[450px] bg-cover bg-center relative"
                                 style={{backgroundImage: `url(${slide.image})`}}
                             >
                             </div>

@@ -1,9 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react';
 
-export default function imageColomn() {
+const ImageColomn = () => {
+    const [activeTab, setActiveTab] = useState(0);
+
     return (
         <div>
 
         </div>
-    )
-}
+    );
+};
+
+export default ImageColomn;

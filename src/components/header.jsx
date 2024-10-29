@@ -1,8 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaBars, FaTimes } from 'react-icons/fa'; // For hamburger icon
+import { FaBars, FaTimes, FaChevronDown, FaChevronUp } from 'react-icons/fa'; // For hamburger icon
 import logo_white from "../images/logo/logo-white.webp";
 import { Submenu } from "../schema/index";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
+import { FreeMode, Pagination } from 'swiper/modules';
+
+import image1 from '../images/games/game1.webp';
+import image2 from '../images/games/game2.png';
+import image3 from '../images/games/game3.png';
+import image4 from '../images/games/game4.png';
 
 const Header = () => {
     const [activeMenu, setActiveMenu] = useState(null);
@@ -151,69 +161,88 @@ const Header = () => {
                                 animate={{opacity: 1}}
                                 exit={{opacity: 0}}
                                 transition={{duration: 0.3}}
-                                className="fixed inset-0 bg-blue-900 bg-opacity-95 grid grid-cols-1 md:grid-cols-2"
+                                className="fixed inset-0 bg-opacity-95 grid grid-cols-1 md:grid-cols-3"
                             >
-                               <div className="nav_bar_tablet_nav_item_wrapper hidden md:block">
-
-                                   {selectedMenu && (
-                                       <div className="submenu">
-                                           <h2 className="text-2xl">{selectedMenu} Submenu</h2>
-                                           <ul className="grid grid-cols-1 md:grid-cols-2 px-2 ml-6">
-                                               {Submenu[selectedMenu].map((game, index) => (
-                                                   <li
-                                                       key={index}
-                                                       className="overflow-y-scroll w-40 h-40 p-4 text-themeYellow shadow-md text-center text-lg bg-transparent flex items-center justify-center"
-                                                   >
-                                                       <motion.img
-                                                           src={game.image}
-                                                           alt={game.name}
-                                                           className="h-38 w-38 mx-auto"
-                                                           initial={{opacity: 0}}
-                                                           animate={{opacity: 1}}
-                                                           transition={{duration: 0.5}}
-                                                       />
-                                                   </li>
-                                               ))}
-                                           </ul>
-                                       </div>
-                                   )}
+                               <div className="nav_bar_tablet_nav_item_wrapper hidden md:block opacity-80">
                                </div>
                                 <div
-                                    className="nav_bar_tablet_nav_link_wrapper p-4 flex flex-col overflow-y-scroll md:overflow-y-hidden space-y-8 z-50">
+                                    className="nav_bar_tablet_nav_link_wrapper md:col-span-2 flex flex-col overflow-y-scroll  space-y-8 z-50">
 
-                                    <div className="lg:hidden float-end justify-end w-full" style={{textAlign:'end'}}>
+                                    <div
+                                        className="lg:flex md:flex bg-themeBlue h-20 px-6 float-end  w-full flex justify-between">
+                                        <img src={logo_white} className="mt-2 w-28 h-16"/>
                                         <button onClick={toggleMobileMenu} className="justify-end">
-                                            {isMenuOpen ? <FaTimes className="float-end text-2xl text-end"/> :
+                                            {isMenuOpen ?
+                                                <FaTimes className="float-end text-2xl text-end text-themeYellow"/> :
                                                 <FaBars className="text-white text-2xl text-end"/>}
                                         </button>
                                     </div>
-                                    <ul className="flex flex-col items-center space-y-6  text-2xl">
+                                    <ul className="flex flex-col items-center space-y-6  text-2xl px-6">
                                         {['Popular', 'Physical Education', 'Real Man', 'Electronic', 'Lottery Ticket', 'Chess Board', 'Fishing'].map((item, index) => (
-                                            <li
-                                                key={index}
-                                                onClick={() => handleMenuItemClick(item)}
-                                                className={`cursor-pointer ${selectedMenu === item ? 'underline font-bold' : ''}`} // Apply active style
-                                            >
-                                                {item}
+                                            <li key={index} className="cursor-pointer w-full">
+                                                <div className="flex items-center justify-between w-full"
+                                                     onClick={() => handleMenuItemClick(item)}>
+                                                    <span
+                                                        className={`cursor-pointer ${selectedMenu === item ? 'font-bold' : ''}`}>
+                                                        {item}
+                                                    </span>
+
+                                                    {selectedMenu === item ? (
+                                                        <FaChevronUp
+                                                            className="ml-2 cursor-pointer"
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                handleMenuItemClick(null);
+                                                            }}
+                                                        />
+                                                    ) : (
+                                                        <FaChevronDown className="ml-2 cursor-pointer"/>
+                                                    )}
+                                                </div>
 
                                                 {selectedMenu === item && (
-                                                    <div className="flex items-center justify-center md:hidden w-100">
-                                                        {Submenu[selectedMenu].map((game, index) => (
-                                                            <li
-                                                                key={index}
-                                                                className="overflow-y-scroll w-40 h-40 p-4 text-themeYellow shadow-md text-center text-lg bg-transparent flex items-center justify-center"
-                                                            >
-                                                                    <motion.img
-                                                                        src={game.image}
-                                                                        alt={game.name}
-                                                                        className="h-32 w-32 mx-auto"
-                                                                        initial={{opacity: 0}}
-                                                                        animate={{opacity: 1}}
-                                                                        transition={{duration: 0.5}}
-                                                                    />
+                                                    <div className="flex items-center justify-center py-4 w-100">
 
-                                                            </li>
-                                                        ))}
+                                                        <Swiper
+                                                            slidesPerView={2.5}
+                                                            grabCursor={true}
+                                                            centeredSlides={true}
+                                                            spaceBetween={5}
+                                                            freeMode={true}
+                                                            pagination={{
+                                                                clickable: true,
+                                                            }}
+                                                            modules={[FreeMode]}
+                                                            className="mySwiper"
+                                                        >
+                                                            {[image1, image2, image3, image4].map((image, index) => (
+                                                                <SwiperSlide key={index}>
+                                                                    <img
+                                                                        src={image}
+                                                                        alt={`Slide ${index + 1}`}
+                                                                        className="w-full h-full object-cover rounded-lg" // Tailwind for full width, height, and border radius
+                                                                        style={{borderRadius: '8px'}} // Additional inline style option if needed
+                                                                    />
+                                                                </SwiperSlide>
+                                                            ))}
+                                                        </Swiper>
+
+                                                        {/*{Submenu[selectedMenu].map((game, index) => (*/}
+                                                        {/*    <li*/}
+                                                        {/*        key={index}*/}
+                                                        {/*        className="overflow-y-scroll w-40 h-40 p-4 text-themeYellow shadow-md text-center text-lg bg-transparent flex items-center justify-center"*/}
+                                                        {/*    >*/}
+                                                        {/*        <motion.img*/}
+                                                        {/*            src={game.image}*/}
+                                                        {/*            alt={game.name}*/}
+                                                        {/*            className="h-32 w-32 mx-auto"*/}
+                                                        {/*            initial={{opacity: 0}}*/}
+                                                        {/*            animate={{opacity: 1}}*/}
+                                                        {/*            transition={{duration: 0.5}}*/}
+                                                        {/*        />*/}
+
+                                                        {/*    </li>*/}
+                                                        {/*))}*/}
                                                     </div>
                                                 )}
 
@@ -222,10 +251,16 @@ const Header = () => {
 
                                         ))}
                                     </ul>
-                                    <div className=" grid grid-cols-1 space-y-4">
-                                        <button className="bg-themeBlue text-themeYellow px-6 py-3 rounded  text-lg">Register
+                                    <div className="flex w-full px-6 gap-2 py-6">
+                                        <button
+                                            className="bg-themeBlue text-themeYellow px-6 py-3 rounded text-lg w-1/2"
+                                        >
+                                            Register
                                         </button>
-                                        <button className="bg-transparent border-themeBlue border-2 px-6 py-3 rounded  text-lg">Login
+                                        <button
+                                            className="bg-transparent border-themeBlue border-2 px-6 py-3 rounded text-lg w-1/2"
+                                        >
+                                            Login
                                         </button>
                                     </div>
                                 </div>
