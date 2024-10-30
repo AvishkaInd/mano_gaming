@@ -115,19 +115,20 @@ const slides = [
         subtitle: 'Slide 3 Subtitle'
     }
 ];
+
 const HomeSlider = () => {
     return (
 
         <div className="relative">
-            <br/>
-            <br/>
-            <br/>
+            <br />
+            <br />
+            <br />
             <div className="slider-container ">
                 <Swiper
                     modules={[Pagination, Autoplay]}
                     spaceBetween={30}
-                    pagination={{clickable: true}}
-                    autoplay={{delay: 3000}}
+                    pagination={{ clickable: true }}
+                    autoplay={{ delay: 3000 }}
                     loop={true}
                     draggable={true}
                     className="mySwiper"
@@ -144,8 +145,8 @@ const HomeSlider = () => {
                     {slides.map((slide, index) => (
                         <SwiperSlide key={index}>
                             <div
-                                className="w-full mt-2 lg:mt-4 h-32 sm:h-80 md:h-96 lg:h-[450px] bg-cover bg-center relative"
-                                style={{backgroundImage: `url(${slide.image})`}}
+                                className="w-full mt-2 lg:mt-2 h-32 sm:h-80 md:h-96 lg:h-[450px] bg-cover bg-center relative"
+                                style={{ backgroundImage: `url(${slide.image})` }}
                             >
                             </div>
 
@@ -159,7 +160,7 @@ const HomeSlider = () => {
 
                     <div
                         className="inline-block animate-marquee px-16"
-                        style={{animationDuration: "15s"}}
+                        style={{ animationDuration: "15s" }}
                     >
                         {/* Replace these with your own messages */}
                         <span className="mx-8">📢 [Notification 1]</span>
@@ -169,10 +170,10 @@ const HomeSlider = () => {
                     </div>
                 </div>
 
+            </div>
         </div>
-</div>
-)
-    ;
+    )
+        ;
 };
 
 export default HomeSlider;

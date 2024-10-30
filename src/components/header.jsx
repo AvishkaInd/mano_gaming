@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes, FaChevronDown, FaChevronUp } from 'react-icons/fa'; // For hamburger icon
 import logo_white from "../images/logo/logo-white.webp";
@@ -7,12 +7,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
-import { FreeMode, Pagination } from 'swiper/modules';
+import { FreeMode } from 'swiper/modules';
 
 import image1 from '../images/games/game1.webp';
 import image2 from '../images/games/game2.png';
 import image3 from '../images/games/game3.png';
 import image4 from '../images/games/game4.png';
+
 
 const Header = () => {
     const [activeMenu, setActiveMenu] = useState(null);
@@ -22,7 +23,6 @@ const Header = () => {
     const [prevMenu, setPrevMenu] = useState(null);
 
     useEffect(() => {
-        // Reset `prevMenu` after a delay to avoid visual conflict
         if (prevMenu) {
             const id = setTimeout(() => setPrevMenu(null), 200);
             return () => clearTimeout(id);
@@ -32,7 +32,7 @@ const Header = () => {
     const handleMouseEnter = (menu) => {
         clearTimeout(timeoutId);
         if (menu !== activeMenu) {
-            setPrevMenu(activeMenu); // Set prevMenu to the current activeMenu
+            setPrevMenu(activeMenu);
             setActiveMenu(menu);
         }
     };
@@ -52,7 +52,7 @@ const Header = () => {
     };
 
     const handleMenuItemClick = (item) => {
-        setSelectedMenu(item); // Update selected menu
+        setSelectedMenu(item);
     };
 
     const submenus = {
@@ -71,7 +71,7 @@ const Header = () => {
             <nav className="top-0 nav_bar_wrap bg-blue-800  shadow-lg">
                 <div className="nav_bar_content flex justify-between px-4 md:px-16 items-center relative z-40">
                     <div className="flex">
-                        <img src={logo_white} className="w-15 h-12" alt="Logo"/>
+                        <img src={logo_white} className="w-15 h-12" alt="Logo" />
                         <ul className={`lg:flex space-x-4 hidden ${isMenuOpen ? 'block' : 'hidden'} ml-12 mt-2 absolute md:static left-0 top-full w-full md:w-auto bg-blue-800 md:bg-transparent`}>
                             {['Popular', 'Physical Education', 'Real Man', 'Electronic', 'Lottery Ticket', 'Chess Board', 'Fishing'].map((item, index) => (
                                 <li
@@ -89,8 +89,8 @@ const Header = () => {
                     {/* Hamburger menu for mobile */}
                     <div className="lg:hidden flex items-center">
                         <button onClick={toggleMobileMenu}>
-                            {isMenuOpen ? <FaTimes className="text-white text-2xl"/> :
-                                <FaBars className="text-white text-2xl"/>}
+                            {isMenuOpen ? <FaTimes className="text-white text-2xl" /> :
+                                <FaBars className="text-white text-2xl" />}
                         </button>
                     </div>
 
@@ -102,12 +102,12 @@ const Header = () => {
                         <button className="nav_bar_login-btn px-2 py-2">Sign In </button>
                     </div>
 
-                    <AnimatePresence  mode="wait">
+                    <AnimatePresence mode="wait">
                         {prevMenu && (
                             <motion.div
                                 className="absolute left-0 top-full w-full nav_bar_action_list shadow-lg z-70"
                                 initial={{ opacity: 1, height: 'auto' }}
-                                animate={{ opacity: 1,zIndex:100}}
+                                animate={{ opacity: 1, zIndex: 100 }}
                                 exit={{ opacity: 1, height: 0 }}
                                 transition={{ duration: 2 }}
                             >
@@ -128,7 +128,7 @@ const Header = () => {
                                 </div>
                             </motion.div>
                         )}
-                        {activeMenu &&  (
+                        {activeMenu && (
                             <motion.div
                                 className="absolute left-0 top-full w-full nav_bar_action_list shadow-lg"
                                 initial={{ opacity: 1, height: 0 }}
@@ -157,31 +157,31 @@ const Header = () => {
                         )}
                         {isMenuOpen && (
                             <motion.div
-                                initial={{opacity: 0}}
-                                animate={{opacity: 1}}
-                                exit={{opacity: 0}}
-                                transition={{duration: 0.3}}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.3 }}
                                 className="fixed inset-0 bg-opacity-95 grid grid-cols-1 md:grid-cols-3"
                             >
-                               <div className="nav_bar_tablet_nav_item_wrapper hidden md:block opacity-80">
-                               </div>
+                                <div className="nav_bar_tablet_nav_item_wrapper hidden md:block opacity-80">
+                                </div>
                                 <div
                                     className="nav_bar_tablet_nav_link_wrapper md:col-span-2 flex flex-col overflow-y-scroll  space-y-8 z-50">
 
                                     <div
                                         className="lg:flex md:flex bg-themeBlue h-20 px-6 float-end  w-full flex justify-between">
-                                        <img src={logo_white} className="mt-2 w-28 h-16"/>
+                                        <img src={logo_white} className="mt-2 w-28 h-16" />
                                         <button onClick={toggleMobileMenu} className="justify-end">
                                             {isMenuOpen ?
-                                                <FaTimes className="float-end text-2xl text-end text-themeYellow"/> :
-                                                <FaBars className="text-white text-2xl text-end"/>}
+                                                <FaTimes className="float-end text-2xl text-end text-themeYellow" /> :
+                                                <FaBars className="text-white text-2xl text-end" />}
                                         </button>
                                     </div>
                                     <ul className="flex flex-col items-center space-y-6  text-2xl px-6">
                                         {['Popular', 'Physical Education', 'Real Man', 'Electronic', 'Lottery Ticket', 'Chess Board', 'Fishing'].map((item, index) => (
                                             <li key={index} className="cursor-pointer w-full">
                                                 <div className="flex items-center justify-between w-full"
-                                                     onClick={() => handleMenuItemClick(item)}>
+                                                    onClick={() => handleMenuItemClick(item)}>
                                                     <span
                                                         className={`cursor-pointer ${selectedMenu === item ? 'font-bold' : ''}`}>
                                                         {item}
@@ -196,7 +196,7 @@ const Header = () => {
                                                             }}
                                                         />
                                                     ) : (
-                                                        <FaChevronDown className="ml-2 cursor-pointer"/>
+                                                        <FaChevronDown className="ml-2 cursor-pointer" />
                                                     )}
                                                 </div>
 
@@ -221,7 +221,7 @@ const Header = () => {
                                                                         src={image}
                                                                         alt={`Slide ${index + 1}`}
                                                                         className="w-full h-full object-cover rounded-lg" // Tailwind for full width, height, and border radius
-                                                                        style={{borderRadius: '8px'}} // Additional inline style option if needed
+                                                                        style={{ borderRadius: '8px' }} // Additional inline style option if needed
                                                                     />
                                                                 </SwiperSlide>
                                                             ))}

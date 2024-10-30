@@ -3,127 +3,122 @@ import game_two from '../images/ui-images/game_2_image.webp';
 import game_three from '../images/ui-images/game_3_image.webp';
 import game_four from '../images/ui-images/game_1_image.webp';
 
+import mobile_banner_sample from "../images/banners/mobile-sample-banner.webp";
+
 export const submenus = {
-    'Popular': [
-        {
+    'Popular': [{
             name: 'Game 1',
             text: '2024-10-25',
             image: game_one,
-            image_two: 'https://example.com/image1.jpg',
+            image_mobile: mobile_banner_sample,
         },
         {
             name: 'Game 2',
             text: '2024-10-25',
             image: game_two,
-            image_two: 'https://example.com/image1.jpg',
+            image_mobile: mobile_banner_sample,
         },
         {
             name: 'Game 3',
             text: '2024-10-25',
             image: game_three,
-            image_two: 'https://example.com/image1.jpg',
+            image_mobile: mobile_banner_sample,
         },
         {
             name: 'Game 4',
             text: '2024-10-25',
             image: game_four,
-            image_two: 'https://example.com/image1.jpg',
+            image_mobile: mobile_banner_sample,
         }
     ],
-    'Physical Education': [
-        {
+    'Physical Education': [{
             name: 'Sport 1',
             text: '2024-10-25',
             image: game_four,
-            image_two: 'https://example.com/image1.jpg',
+            image_mobile: mobile_banner_sample,
         },
         {
             name: 'Sport 2',
             text: '2024-10-25',
             image: game_one,
-            image_two: 'https://example.com/image1.jpg',
+            image_two: mobile_banner_sample,
         },
         {
             name: 'Sport 3',
             text: '2024-10-25',
             image: game_one,
-            image_two: 'https://example.com/image1.jpg',
+            image_mobile: mobile_banner_sample,
         }
     ],
-    'Real Man': [
-        {
+    'Real Man': [{
             name: 'Real Man Game 1',
             text: '2024-10-25',
             image: game_one,
-            image_two: 'https://example.com/image1.jpg',
+            image_mobile: mobile_banner_sample,
         },
         {
             name: 'Real Man Game 2',
             text: '2024-10-25',
             image: game_one,
-            image_two: 'https://example.com/image1.jpg',
+            image_mobile: mobile_banner_sample,
         }
     ],
-    'Electronic': [
-        {
+    'Electronic': [{
             name: 'Electronic Game 1',
             text: '2024-10-25',
             image: game_one,
-            image_two: 'https://example.com/image1.jpg',
+            image_mobile: mobile_banner_sample,
         },
         {
             name: 'Electronic Game 2',
             text: '2024-10-25',
             image: game_two,
-            image_two: 'https://example.com/image1.jpg',
+            image_mobile: mobile_banner_sample,
         }
     ],
-    'Lottery Ticket': [
-        {
+    'Lottery Ticket': [{
             name: 'Lottery 1',
             text: '2024-10-25',
             image: game_two,
-            image_two: 'https://example.com/image1.jpg',
+            image_mobile: mobile_banner_sample,
         },
         {
             name: 'Lottery 2',
             text: '2024-10-25',
             image: game_one,
-            image_two: 'https://example.com/image1.jpg',
+            image_mobile: mobile_banner_sample,
         },
         {
             name: 'Lottery 3',
             text: '2024-10-25',
             image: game_four,
-            image_two: 'https://example.com/image1.jpg',
+            image_mobile: mobile_banner_sample,
         }
     ],
-    'Chess Board': [
-        {
+    'Chess Board': [{
             name: 'Chess 1',
             text: '2024-10-25',
             image: game_one,
-            image_two: 'https://example.com/image1.jpg',
+            image_mobile: mobile_banner_sample,
         },
         {
             name: 'Chess 2',
             text: '2024-10-25',
             image: game_three,
-            image_two: 'https://example.com/image1.jpg',
+            image_mobile: mobile_banner_sample,
         }
     ],
-    'Fishing': [
-        {
+    'Fishing': [{
             name: 'Fishing 1',
             text: '2024-10-25',
             image: game_one,
-            image_two: 'https://example.com/image1.jpg',
+            image_mobile: mobile_banner_sample,
         },
         {
             name: 'Fishing 2',
             text: '2024-10-25',
             image: game_two,
-            image_two: 'https://example.com/image1.jpg',
+            image_mobile: mobile_banner_sample,
         }
     ],
 };
