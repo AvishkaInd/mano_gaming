@@ -1,13 +1,11 @@
 // Swiper js - react
 // Slider Dataset
 
-import mobile_banner_sample from "../images/banners/mobile-sample-banner.webp";
-
 // Import required images
-import banner_one from "../images/banners/banner1.jpg";
+import banner_one from "../images/banners/banner1.png";
 import banner_two from "../images/banners/banner2.png";
-import banner_three from "../images/banners/banner3.jpg";
-import banner_four from "../images/banners/banner4.jpg";
+import banner_three from "../images/banners/banner3.png";
+import banner_four from "../images/banners/banner4.png";
 import banner_five from "../images/banners/banner5.png";
 import banner_six from "../images/banners/banner6.png";
 

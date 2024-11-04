@@ -19,7 +19,7 @@ const HomeSlider = () => {
 
             if (width <= 786) {
                 setScreenSize('mobile');
-            } else if (width <= 1000) {
+            } else if (width <= 1020) {
                 setScreenSize('tablet');
             } else {
                 setScreenSize('desktop');
@@ -60,7 +60,7 @@ const HomeSlider = () => {
                     {Slides.map((slide, index) => (
                         <SwiperSlide key={index}>
                             <div
-                                className="w-full mt-2 lg:mt-2 h-[250px] sm:h-[350px] md:h-[420px] lg:h-[450px] xl:h-[550px] bg-cover bg-center relative"
+                                className="w-full mt-2 lg:mt-2 h-[250px] sm:h-[350px] md:h-[450px] lg:h-[330px] xl:h-[400px] 2xl:h-[520px] bg-cover bg-center relative"
                                 style={{
                                     backgroundImage: `url(${
                                         screenSize === 'mobile' ? slide.image_mobile :

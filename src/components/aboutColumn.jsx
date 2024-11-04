@@ -1,7 +1,6 @@
 import React from 'react';
 import column_image from "../images/image-column/700x600.png";
 import qr_code from "../images/image-column/QR 200x200.webp";
-import logo_tag from "../images/image-column/125x125 Top 11 Logo.webp";
 import logo from "../images/logo/logo-white.webp";
 import ios_logo from "../images/image-column/App-store.png";
 import android_logo from "../images/image-column/Google-play.png";

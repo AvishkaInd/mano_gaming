@@ -20,7 +20,7 @@ import logoFooter16 from "../images/game-logo/dragoonsoft-400x464.webp";
 const Footer = () => {
     return (
         <footer className="footer_custom text-white py-8">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-12 sm:px-2 md:px-2 lg:px-2 xl:px-10">
                 <div
                     className='grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-8 gap-4 justify-items-center'>
                     <img src={logoFooter1} className='BlueFilter'/>

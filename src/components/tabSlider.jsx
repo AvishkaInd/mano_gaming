@@ -3,7 +3,7 @@ import { Submenu } from "../schema";
 import button from "../images/button.webp";
 
 
-const TabContent = ({ onTabChange }) => {
+const TabSlider = ({ onTabChange }) => {
     const [activeTab, setActiveTab] = useState(Object.keys(Submenu)[0]);
 
     const handleTabClick = (tabName) => {
@@ -40,4 +40,4 @@ const TabContent = ({ onTabChange }) => {
     );
 };
 
-export default TabContent;
+export default TabSlider;
