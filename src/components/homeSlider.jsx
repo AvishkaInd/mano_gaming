@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -8,117 +8,32 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-// Import required images
-import banner_one from "../images/ui-images/banner1.jpg";
-import banner_two from "../images/ui-images/banner2.png";
-import banner_three from "../images/ui-images/banner3.jpg";
-import banner_four from "../images/ui-images/banner4.jpg";
-import banner_five from "../images/ui-images/banner5.webp";
-import banner_six from "../images/ui-images/banner6.webp";
-import banner_seven from "../images/ui-images/banner7.webp";
-import banner_eight from "../images/ui-images/banner8.webp";
-import banner_nine from "../images/ui-images/banner9.webp";
-import banner_ten from "../images/ui-images/banner10.webp";
-import banner_eleven from "../images/ui-images/banner11.webp";
-import banner_twelve from "../images/ui-images/banner12.webp";
-import banner_thirteen from "../images/ui-images/banner13.webp";
-import banner_fourteen from "../images/ui-images/banner14.webp";
-import banner_fifteen from "../images/ui-images/banner15.png";
-import banner_sixteen from "../images/ui-images/banner16.png";
-
-const slides = [
-    {
-        image: banner_fifteen,
-        title: 'Slide 1 Title',
-        subtitle: 'Slide 1 Subtitle'
-    },
-    {
-        image: banner_sixteen,
-        title: 'Slide 1 Title',
-        subtitle: 'Slide 1 Subtitle'
-    },
-    {
-        image: banner_one,
-        title: 'Slide 1 Title',
-        subtitle: 'Slide 1 Subtitle'
-    },
-    {
-        image: banner_two,
-        title: 'Slide 2 Title',
-        subtitle: 'Slide 2 Subtitle'
-    },
-    {
-        image: banner_three,
-        title: 'Slide 3 Title',
-        subtitle: 'Slide 3 Subtitle'
-    },
-    {
-        image: banner_four,
-        title: 'Slide 3 Title',
-        subtitle: 'Slide 3 Subtitle'
-    },
-    {
-        image: banner_five,
-        title: 'Slide 3 Title',
-        subtitle: 'Slide 3 Subtitle'
-    }
-    ,
-    {
-        image: banner_six,
-        title: 'Slide 3 Title',
-        subtitle: 'Slide 3 Subtitle'
-    }
-    ,
-    {
-        image: banner_seven,
-        title: 'Slide 3 Title',
-        subtitle: 'Slide 3 Subtitle'
-    }
-    ,
-    {
-        image: banner_eight,
-        title: 'Slide 3 Title',
-        subtitle: 'Slide 3 Subtitle'
-    }
-    ,
-    {
-        image: banner_nine,
-        title: 'Slide 3 Title',
-        subtitle: 'Slide 3 Subtitle'
-    }
-    ,
-    {
-        image: banner_ten,
-        title: 'Slide 3 Title',
-        subtitle: 'Slide 3 Subtitle'
-    }
-    ,
-    {
-        image: banner_eleven,
-        title: 'Slide 3 Title',
-        subtitle: 'Slide 3 Subtitle'
-    }
-    ,
-    {
-        image: banner_twelve,
-        title: 'Slide 3 Title',
-        subtitle: 'Slide 3 Subtitle'
-    },
-    {
-        image: banner_thirteen,
-        title: 'Slide 3 Title',
-        subtitle: 'Slide 3 Subtitle'
-    },
-    {
-        image: banner_fourteen,
-        title: 'Slide 3 Title',
-        subtitle: 'Slide 3 Subtitle'
-    }
-];
+import {Slides} from '../schema/index';
 
 const HomeSlider = () => {
-    return (
+    const [screenSize, setScreenSize] = useState('desktop');
 
+    useEffect(() => {
+        const handleResize = () => {
+            const width = window.innerWidth;
+
+            if (width <= 786) {
+                setScreenSize('mobile');
+            } else if (width <= 1000) {
+                setScreenSize('tablet');
+            } else {
+                setScreenSize('desktop');
+            }
+        };
+
+        handleResize(); // Set the initial screen size
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup listener on component unmount
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    return (
         <div className="relative">
             <br />
             <br />
@@ -133,23 +48,28 @@ const HomeSlider = () => {
                     draggable={true}
                     className="mySwiper"
                     style={{
-                        "--swiper-pagination-color": "#002147", // Active bullet color
+                        "--swiper-pagination-color": "#002147",
                         "--swiper-pagination-bullet-inactive-color": "#999999",
                         "--swiper-pagination-bullet-inactive-opacity": "1",
-                        "--swiper-pagination-bullet-size": "8px", // Bullet height
-                        "--swiper-pagination-bullet-width": "15px", // Bullet width
+                        "--swiper-pagination-bullet-size": "8px",
+                        "--swiper-pagination-bullet-width": "15px",
                         "--swiper-pagination-bullet-horizontal-gap": "8px",
                         "--swiper-pagination-bullet-border-radius": ' 4px'
                     }}
                 >
-                    {slides.map((slide, index) => (
+                    {Slides.map((slide, index) => (
                         <SwiperSlide key={index}>
                             <div
-                                className="w-full mt-2 lg:mt-2 h-32 sm:h-80 md:h-96 lg:h-[450px] bg-cover bg-center relative"
-                                style={{ backgroundImage: `url(${slide.image})` }}
+                                className="w-full mt-2 lg:mt-2 h-[250px] sm:h-[350px] md:h-[420px] lg:h-[450px] xl:h-[550px] bg-cover bg-center relative"
+                                style={{
+                                    backgroundImage: `url(${
+                                        screenSize === 'mobile' ? slide.image_mobile :
+                                            screenSize === 'tablet' ? slide.image_mobile :
+                                                slide.image 
+                                    })`
+                                }}
                             >
                             </div>
-
                         </SwiperSlide>
                     ))}
                 </Swiper>

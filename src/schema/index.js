@@ -1,1 +1,3 @@
-export { submenus as Submenu } from './header_nav_link';
+export { submenus as Submenu } from './header_schema';
+export { slides as Slides } from './slider_schema';
+export { services as Services } from './serviceCard_schema';

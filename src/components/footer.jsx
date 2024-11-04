@@ -21,28 +21,30 @@ const Footer = () => {
     return (
         <footer className="footer_custom text-white py-8">
             <div className="container mx-auto px-4">
-                <div className='grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:sm:grid-cols-8 xl:sm:grid-cols-12 gap-2'>
-                    <img src={logoFooter1} className='BlueFilter' />
-                    <img src={logoFooter2} className='BlueFilter' />
-                    <img src={logoFooter3} className='BlueFilter' />
-                    <img src={logoFooter4} className='BlueFilter' />
-                    <img src={logoFooter5} className='BlueFilter' />
-                    <img src={logoFooter6} className='BlueFilter' />
-                    <img src={logoFooter7} className='BlueFilter' />
-                    <img src={logoFooter8} className='BlueFilter' />
-                    <img src={logoFooter9} className='BlueFilter' />
-                    <img src={logoFooter10} className='BlueFilter' />
-                    <img src={logoFooter11} className='BlueFilter' />
-                    <img src={logoFooter12} className='BlueFilter' />
-                    <img src={logoFooter13} className='BlueFilter' />
-                    <img src={logoFooter14} className='BlueFilter' />
-                    <img src={logoFooter15} className='BlueFilter' />
-                    <img src={logoFooter16} className='BlueFilter' />
-
+                <div
+                    className='grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-8 gap-4 justify-items-center'>
+                    <img src={logoFooter1} className='BlueFilter'/>
+                    <img src={logoFooter2} className='BlueFilter'/>
+                    <img src={logoFooter3} className='BlueFilter'/>
+                    <img src={logoFooter4} className='BlueFilter'/>
+                    <img src={logoFooter5} className='BlueFilter'/>
+                    <img src={logoFooter6} className='BlueFilter'/>
+                    <img src={logoFooter7} className='BlueFilter'/>
+                    <img src={logoFooter8} className='BlueFilter'/>
+                    <img src={logoFooter9} className='BlueFilter'/>
+                    <img src={logoFooter10} className='BlueFilter'/>
+                    <img src={logoFooter11} className='BlueFilter'/>
+                    <img src={logoFooter12} className=''/>
+                    <img src={logoFooter13} className='BlueFilter'/>
+                    <img src={logoFooter14} className='BlueFilter'/>
+                    <img src={logoFooter15} className='BlueFilter'/>
+                    <img src={logoFooter16} className='BlueFilter'/>
                 </div>
                 {/* Copyright Section */}
+
                 <div className="text-center mt-4 text-gray-500">
-                    © {new Date().getFullYear()}  |  All rights reserved
+                    <br/>
+                    © {new Date().getFullYear()} | All rights reserved
                 </div>
             </div>
         </footer>

@@ -1,99 +1,59 @@
+// Swiper js - react
+// Slider Dataset
+
 import mobile_banner_sample from "../images/banners/mobile-sample-banner.webp";
 
-const slides = [{
-        image: banner_fifteen,
-        image_mobile: mobile_banner_sample,
-        meta_title: 'Meta Title Here',
-        meta_description: 'Meta Desription Here'
-    },
-    {
-        image: banner_sixteen,
-        image_mobile: mobile_banner_sample,
-        meta_title: 'Meta Title Here',
-        meta_description: 'Meta Desription Here'
-    },
-    {
+// Import required images
+import banner_one from "../images/banners/banner1.jpg";
+import banner_two from "../images/banners/banner2.png";
+import banner_three from "../images/banners/banner3.jpg";
+import banner_four from "../images/banners/banner4.jpg";
+import banner_five from "../images/banners/banner5.png";
+import banner_six from "../images/banners/banner6.png";
+
+//mobile
+import banner_one_mobile from "../images/banners/banner1-mobile.png";
+import banner_two_mobile from "../images/banners/banner2-mobile.png";
+import banner_three_mobile from "../images/banners/banner3-mobile.png";
+import banner_four_mobile from "../images/banners/banner4-mobile.png";
+import banner_five_mobile from "../images/banners/banner5-mobile.png";
+import banner_six_mobile from "../images/banners/banner3-mobile.png";
+
+
+export const slides = [{
         image: banner_one,
-        image_mobile: mobile_banner_sample,
+        image_mobile: banner_one_mobile,
         meta_title: 'Meta Title Here',
-        meta_description: 'Meta Desription Here'
+        meta_description: 'Meta Description Here'
     },
     {
         image: banner_two,
-        image_mobile: mobile_banner_sample,
+        image_mobile: banner_two_mobile,
         meta_title: 'Meta Title Here',
-        meta_description: 'Meta Desription Here'
+        meta_description: 'Meta Description Here'
     },
     {
         image: banner_three,
-        image_mobile: mobile_banner_sample,
+        image_mobile: banner_three_mobile,
         meta_title: 'Meta Title Here',
-        meta_description: 'Meta Desription Here'
+        meta_description: 'Meta Description Here'
     },
     {
         image: banner_four,
-        image_mobile: mobile_banner_sample,
+        image_mobile: banner_four_mobile,
         meta_title: 'Meta Title Here',
-        meta_description: 'Meta Desription Here'
+        meta_description: 'Meta Description Here'
     },
     {
         image: banner_five,
-        image_mobile: mobile_banner_sample,
+        image_mobile: banner_five_mobile,
         meta_title: 'Meta Title Here',
-        meta_description: 'Meta Desription Here'
+        meta_description: 'Meta Description Here'
     },
     {
         image: banner_six,
-        image_mobile: mobile_banner_sample,
+        image_mobile: banner_six_mobile,
         meta_title: 'Meta Title Here',
-        meta_description: 'Meta Desription Here'
-    },
-    {
-        image: banner_seven,
-        image_mobile: mobile_banner_sample,
-        meta_title: 'Meta Title Here',
-        meta_description: 'Meta Desription Here'
-    },
-    {
-        image: banner_eight,
-        image_mobile: mobile_banner_sample,
-        meta_title: 'Meta Title Here',
-        meta_description: 'Meta Desription Here'
-    },
-    {
-        image: banner_nine,
-        image_mobile: mobile_banner_sample,
-        meta_title: 'Meta Title Here',
-        meta_description: 'Meta Desription Here'
-    },
-    {
-        image: banner_ten,
-        image_mobile: mobile_banner_sample,
-        meta_title: 'Meta Title Here',
-        meta_description: 'Meta Desription Here'
-    },
-    {
-        image: banner_eleven,
-        image_mobile: mobile_banner_sample,
-        meta_title: 'Meta Title Here',
-        meta_description: 'Meta Desription Here'
-    },
-    {
-        image: banner_twelve,
-        image_mobile: mobile_banner_sample,
-        meta_title: 'Meta Title Here',
-        meta_description: 'Meta Desription Here'
-    },
-    {
-        image: banner_thirteen,
-        image_mobile: mobile_banner_sample,
-        meta_title: 'Meta Title Here',
-        meta_description: 'Meta Desription Here'
-    },
-    {
-        image: banner_fourteen,
-        image_mobile: mobile_banner_sample,
-        meta_title: 'Meta Title Here',
-        meta_description: 'Meta Desription Here'
+        meta_description: 'Meta Description Here'
     }
 ];

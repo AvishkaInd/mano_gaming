@@ -1,23 +1,13 @@
 import './App.css';
-import { Header, Slider, TabSlider, Footer } from "./components/index";
+import {Header, Slider, TabSlider, Footer, Cards, DescColumn} from "./components/index";
+import Caption from "./components/caption";
 function App() {
     return (
         <div className='body_wrapper'>
-            <Header/>
-            <Slider/>
-                {/*<TabSlider/>*/}
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-
-            <br/>
-            <br/>
-            <br/>
-                <h1 className="text-white">aasdsdasd</h1>
+                <Header/>
+                <Slider/>
+                <Caption name="Popular  Caption here"/>
+                <TabSlider/>
             <br/>
             <br/>
             <br/>
@@ -31,45 +21,9 @@ function App() {
             <br/>
             <br/>
             <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-
-
-            {/*<Slider/>*/}
+                <DescColumn/>
+                <Caption name="Services Caption here"/>
+                <Cards/>
                 <Footer/>
         </div>
     );

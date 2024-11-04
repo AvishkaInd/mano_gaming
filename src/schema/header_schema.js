@@ -5,6 +5,8 @@ import game_four from '../images/ui-images/game_1_image.webp';
 
 import mobile_banner_sample from "../images/banners/mobile-sample-banner.webp";
 
+
+
 export const submenus = {
     'Popular': [{
             name: 'Game 1',
@@ -31,7 +33,7 @@ export const submenus = {
             image_mobile: mobile_banner_sample,
         }
     ],
-    'Physical Education': [{
+    'Promotions': [{
             name: 'Sport 1',
             text: '2024-10-25',
             image: game_four,
@@ -50,7 +52,7 @@ export const submenus = {
             image_mobile: mobile_banner_sample,
         }
     ],
-    'Real Man': [{
+    'Sports': [{
             name: 'Real Man Game 1',
             text: '2024-10-25',
             image: game_one,
@@ -63,7 +65,7 @@ export const submenus = {
             image_mobile: mobile_banner_sample,
         }
     ],
-    'Electronic': [{
+    'Live': [{
             name: 'Electronic Game 1',
             text: '2024-10-25',
             image: game_one,
@@ -76,7 +78,7 @@ export const submenus = {
             image_mobile: mobile_banner_sample,
         }
     ],
-    'Lottery Ticket': [{
+    'Slots': [{
             name: 'Lottery 1',
             text: '2024-10-25',
             image: game_two,
@@ -95,7 +97,7 @@ export const submenus = {
             image_mobile: mobile_banner_sample,
         }
     ],
-    'Chess Board': [{
+    'Games': [{
             name: 'Chess 1',
             text: '2024-10-25',
             image: game_one,
@@ -105,6 +107,32 @@ export const submenus = {
             name: 'Chess 2',
             text: '2024-10-25',
             image: game_three,
+            image_mobile: mobile_banner_sample,
+        }
+    ],
+    'Cockfight': [{
+        name: 'Fishing 1',
+        text: '2024-10-25',
+        image: game_one,
+        image_mobile: mobile_banner_sample,
+    },
+        {
+            name: 'Fishing 2',
+            text: '2024-10-25',
+            image: game_two,
+            image_mobile: mobile_banner_sample,
+        }
+    ],
+    'Tables': [{
+        name: 'Fishing 1',
+        text: '2024-10-25',
+        image: game_one,
+        image_mobile: mobile_banner_sample,
+    },
+        {
+            name: 'Fishing 2',
+            text: '2024-10-25',
+            image: game_two,
             image_mobile: mobile_banner_sample,
         }
     ],

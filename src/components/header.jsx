@@ -37,7 +37,6 @@ const Header = () => {
         }
     };
 
-
     const handleMouseLeave = () => {
         const id = setTimeout(() => {
             setActiveMenu(null);
@@ -55,15 +54,6 @@ const Header = () => {
         setSelectedMenu(item);
     };
 
-    const submenus = {
-        Popular: ['Game 1', 'Game 2', 'Game 3'],
-        'Physical Education': ['Sport 1', 'Sport 2', 'Sport 3'],
-        'Real Man': ['Real Man Game 1', 'Real Man Game 2'],
-        Electronic: ['Electronic Game 1', 'Electronic Game 2'],
-        'Lottery Ticket': ['Lottery 1', 'Lottery 2', 'Lottery 3'],
-        'Chess Board': ['Chess 1', 'Chess 2'],
-        Fishing: ['Fishing 1', 'Fishing 2'],
-    };
 
     return (
         <div className="nav_wrapper z-20">
@@ -73,7 +63,7 @@ const Header = () => {
                     <div className="flex">
                         <img src={logo_white} className="w-15 h-12" alt="Logo" />
                         <ul className={`lg:flex space-x-4 hidden ${isMenuOpen ? 'block' : 'hidden'} ml-12 mt-2 absolute md:static left-0 top-full w-full md:w-auto bg-blue-800 md:bg-transparent`}>
-                            {['Popular', 'Physical Education', 'Real Man', 'Electronic', 'Lottery Ticket', 'Chess Board', 'Fishing'].map((item, index) => (
+                            {Object.keys(Submenu).map((item, index) => (
                                 <li
                                     key={index}
                                     onMouseEnter={() => handleMouseEnter(item)}
@@ -98,8 +88,7 @@ const Header = () => {
 
 
                     <div className="hidden lg:flex space-x-4">
-                        <button className="nav_bar_register-btn px-2 py-2">Sign Up</button>
-                        <button className="nav_bar_login-btn px-2 py-2">Sign In </button>
+                        <button className="nav_bar_register-btn px-2 py-2">Sign Up / Sign In</button>
                     </div>
 
                     <AnimatePresence mode="wait">
@@ -178,7 +167,7 @@ const Header = () => {
                                         </button>
                                     </div>
                                     <ul className="flex flex-col items-center space-y-6  text-2xl px-6">
-                                        {['Popular', 'Physical Education', 'Real Man', 'Electronic', 'Lottery Ticket', 'Chess Board', 'Fishing'].map((item, index) => (
+                                        {Object.keys(Submenu).map((item, index) => (
                                             <li key={index} className="cursor-pointer w-full">
                                                 <div className="flex items-center justify-between w-full"
                                                     onClick={() => handleMenuItemClick(item)}>
@@ -226,23 +215,6 @@ const Header = () => {
                                                                 </SwiperSlide>
                                                             ))}
                                                         </Swiper>
-
-                                                        {/*{Submenu[selectedMenu].map((game, index) => (*/}
-                                                        {/*    <li*/}
-                                                        {/*        key={index}*/}
-                                                        {/*        className="overflow-y-scroll w-40 h-40 p-4 text-themeYellow shadow-md text-center text-lg bg-transparent flex items-center justify-center"*/}
-                                                        {/*    >*/}
-                                                        {/*        <motion.img*/}
-                                                        {/*            src={game.image}*/}
-                                                        {/*            alt={game.name}*/}
-                                                        {/*            className="h-32 w-32 mx-auto"*/}
-                                                        {/*            initial={{opacity: 0}}*/}
-                                                        {/*            animate={{opacity: 1}}*/}
-                                                        {/*            transition={{duration: 0.5}}*/}
-                                                        {/*        />*/}
-
-                                                        {/*    </li>*/}
-                                                        {/*))}*/}
                                                     </div>
                                                 )}
 

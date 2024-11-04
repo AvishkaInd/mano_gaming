@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Caption = (name) => {
+const Caption = ({ name }) => {
     return (
-        <div>
-
-        </div>
+        <h2 className="text-white font-bold font text-4xl text-center py-8">
+            {name}
+        </h2>
     );
 };
 
