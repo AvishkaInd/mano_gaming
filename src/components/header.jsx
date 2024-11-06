@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes, FaChevronDown, FaChevronUp } from 'react-icons/fa'; // For hamburger icon
 import logo_white from "../images/logo/logo-white.webp";
-import { Submenu } from "../schema/index";
+import { Submenu } from "../Data/index";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -30,11 +30,19 @@ const Header = () => {
     }, [prevMenu]);
 
     const handleMouseEnter = (menu) => {
+        const selectedSubmenu = Submenu[menu];
+        console.log(selectedSubmenu.items);
         clearTimeout(timeoutId);
-        if (menu !== activeMenu) {
-            setPrevMenu(activeMenu);
-            setActiveMenu(menu);
+
+        if (selectedSubmenu.items && selectedSubmenu.items.length > 0) {
+            if (menu !== activeMenu) {
+                setPrevMenu(activeMenu);
+                setActiveMenu(menu);
+            }
+        } else {
+            setActiveMenu(null);
         }
+
     };
 
     const handleMouseLeave = () => {
@@ -63,24 +71,28 @@ const Header = () => {
                     <div className="flex">
                         <img src={logo_white} className="w-15 h-12" alt="Logo" />
                         <ul className={`lg:flex space-x-4 hidden ${isMenuOpen ? 'block' : 'hidden'} ml-12 mt-2 absolute md:static left-0 top-full w-full md:w-auto bg-blue-800 md:bg-transparent`}>
-                            {Object.keys(Submenu).map((item, index) => (
-                                <li
-                                    key={index}
-                                    onMouseEnter={() => handleMouseEnter(item)}
-                                    onMouseLeave={handleMouseLeave}
-                                    className="relative group cursor-pointer ml-4 py-2 md:py-0 text-center text-white"
-                                >
-                                    {item}
-                                </li>
-                            ))}
+                            {Object.keys(Submenu).map((key, index) => {
+                                const submenu = Submenu[key];
+                                return(
+                                    <li
+                                        key={index}
+                                        onMouseEnter={() => handleMouseEnter(key)}
+                                        onMouseLeave={handleMouseLeave}
+                                        className="relative group cursor-pointer ml-4 py-2 md:py-0 text-center text-white"
+                                        onClick={submenu.items.length === 0 ? () => (window.location.href = submenu.link) : () => {}}
+                                    >
+                                        {submenu.name || key}
+                                    </li>
+                                );
+                            })};
                         </ul>
                     </div>
 
                     {/* Hamburger menu for mobile */}
                     <div className="lg:hidden flex items-center">
                         <button onClick={toggleMobileMenu}>
-                            {isMenuOpen ? <FaTimes className="text-white text-2xl" /> :
-                                <FaBars className="text-white text-2xl" />}
+                            {isMenuOpen ? <FaTimes className="text-white text-2xl"/> :
+                                <FaBars className="text-white text-2xl"/>}
                         </button>
                     </div>
 
@@ -92,53 +104,61 @@ const Header = () => {
                     </div>
 
                     <AnimatePresence mode="wait">
-                        {prevMenu && (
+                        {prevMenu && Submenu[prevMenu]?.items?.length > 0 && (
                             <motion.div
                                 className="absolute left-0 top-full w-full nav_bar_action_list shadow-lg z-70"
                                 initial={{ opacity: 1, height: 'auto' }}
-                                animate={{ opacity: 1, zIndex: 100 }}
+                                animate={{ opacity: 0, zIndex: 100 }}
                                 exit={{ opacity: 1, height: 0 }}
                                 transition={{ duration: 2 }}
                             >
-                                <div className="container mx-auto flex justify-around">
-                                    {Submenu[prevMenu]?.map((submenuItem, submenuIndex) => (
-                                        <div key={submenuIndex} className="text-center text-white mt-2">
+                                <div className={`container mx-auto flex ${
+                                    Submenu[prevMenu]?.items?.length > 3 ? 'justify-around' : 'justify-center mt-[-20px] gap-18'
+                                }`}>
+                                    {Submenu[prevMenu].items?.map((submenuItem, submenuIndex) => (
+                                        <div key={submenuIndex} className="text-center">
                                             <motion.img
+                                                onClick={() => (window.location.href = submenuItem.link)}
                                                 src={submenuItem.image}
                                                 alt={submenuItem.name}
-                                                className="h-32 w-32 mx-auto"
-                                                initial={{ opacity: 0.5 }}
-                                                animate={{ opacity: 0 }}
-                                                transition={{ duration: 0.8 }}
+                                                className={`h-42 w-42 mx-auto ${
+                                                    Submenu[prevMenu]?.items?.length > 3 ? 'px-2' : 'px-12'
+                                                }`}
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ duration: 0.8}}
                                             />
-                                            <p>{submenuItem.name}</p>
                                         </div>
                                     ))}
                                 </div>
                             </motion.div>
                         )}
-                        {activeMenu && (
+                        {activeMenu && Submenu[activeMenu]?.items?.length > 0 &&(
                             <motion.div
                                 className="absolute left-0 top-full w-full nav_bar_action_list shadow-lg"
-                                initial={{ opacity: 1, height: 0 }}
-                                animate={{ opacity: 1, height: 'auto', minHeight: '200px' }}
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto', minHeight: '220px' }}
                                 exit={{ opacity: 0, height: 0 }}
                                 onMouseEnter={() => clearTimeout(timeoutId)}
                                 onMouseLeave={handleMouseLeave}
-                                transition={{ duration: 0.4 }}
+                                transition={{ duration: 0.6 }}
                             >
-                                <div className="container mx-auto flex justify-around">
-                                    {Submenu[activeMenu]?.map((submenuItem, submenuIndex) => (
-                                        <div key={submenuIndex} className="text-center text-white mt-2">
+                                <div className={`container mx-auto flex ${
+                                    Submenu[activeMenu]?.items?.length > 3 ? 'justify-around' : 'justify-center  gap-18'
+                                }`}>
+                                    {Submenu[activeMenu].items?.map((submenuItem, submenuIndex) => (
+                                        <div key={submenuIndex} className="text-center">
                                             <motion.img
                                                 src={submenuItem.image}
+                                                onClick={() => (window.location.href = submenuItem.link)}
                                                 alt={submenuItem.name}
-                                                className="h-32 w-32 mx-auto"
-                                                initial={{ opacity: 0 }}
-                                                animate={{ opacity: 1 }}
-                                                transition={{ duration: 0.5 }}
+                                                className={`h-42 w-42 mx-auto ${
+                                                    Submenu[activeMenu]?.items?.length > 3 ? 'px-2' : 'px-12'
+                                                }`}
+                                                initial={{opacity: 0}}
+                                                animate={{opacity: 1}}
+                                                transition={{duration: 0.8}}
                                             />
-                                            <p>{submenuItem.name}</p>
                                         </div>
                                     ))}
                                 </div>
@@ -146,7 +166,7 @@ const Header = () => {
                         )}
                         {isMenuOpen && (
                             <motion.div
-                                initial={{ opacity: 0 }}
+                                initial={{opacity: 0}}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 transition={{ duration: 0.3 }}

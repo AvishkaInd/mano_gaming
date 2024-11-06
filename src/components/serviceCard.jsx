@@ -1,5 +1,5 @@
 import React from 'react';
-import {Services} from "../schema";
+import {Services} from "../Data";
 
 const ServiceCard = () => {
     return (

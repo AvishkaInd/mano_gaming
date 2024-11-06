@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Caption = ({ name }) => {
+const Caption = ({ image }) => {
     return (
-        <h2 className="text-white font-bold font text-4xl text-center py-8">
-            {name}
-        </h2>
+        <div className="text-center w-full py-8 ">
+            <img src={image} className="mx-auto"/>
+        </div>
+
     );
 };
 

@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-import {Slides} from '../schema/index';
+import {Slides} from '../Data/index';
 
 const HomeSlider = () => {
     const [screenSize, setScreenSize] = useState('desktop');
@@ -60,7 +60,7 @@ const HomeSlider = () => {
                     {Slides.map((slide, index) => (
                         <SwiperSlide key={index}>
                             <div
-                                className="w-full mt-2 lg:mt-2 h-[250px] sm:h-[350px] md:h-[450px] lg:h-[330px] xl:h-[400px] 2xl:h-[520px] bg-cover bg-center relative"
+                                className="w-full mt-2 lg:mt-2 h-[250px] sm:h-[350px] md:h-[450px] lg:h-[330px] xl:h-[500px] 2xl:h-[520px]  bg-cover bg-center relative"
                                 style={{
                                     backgroundImage: `url(${
                                         screenSize === 'mobile' ? slide.image_mobile :

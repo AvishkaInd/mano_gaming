@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Submenu } from "../schema";
+import { Tabmenus } from "../Data";
 import button from "../images/button.webp";
 
 
 const TabSlider = ({ onTabChange }) => {
-    const [activeTab, setActiveTab] = useState(Object.keys(Submenu)[0]);
+    const [activeTab, setActiveTab] = useState(Object.keys(Tabmenus)[0]);
 
     const handleTabClick = (tabName) => {
         setActiveTab(tabName);
@@ -17,7 +17,7 @@ const TabSlider = ({ onTabChange }) => {
             <div className="flex items-center justify-center mt-4 overflow-x-auto">
                 <div className="relative p-1 rounded-full tab_container  w-full max-w-full lg:max-w-[890px] mx-auto">
                     <div className="flex tab_inner space-x-2">
-                        {Object.keys(Submenu).map((tabName, index) => (
+                        {Object.keys(Tabmenus).map((tabName, index) => (
                             <button
                                 key={index}
                                 className={`px-4 py-2 font-medium rounded-full transition duration-300 ${
