@@ -100,7 +100,7 @@ const Header = () => {
 
 
                     <div className="hidden lg:flex space-x-4">
-                        <button className="nav_bar_register-btn px-2 py-2">Sign Up / Sign In</button>
+                        <button className="nav_bar_register-btn px-2 py-2" onClick={()=> (window.location.href="https://www.top11india.com/register")}>Sign Up / Sign In</button>
                     </div>
 
                     <AnimatePresence mode="wait">

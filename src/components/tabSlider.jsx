@@ -15,7 +15,7 @@ const TabSlider = ({ onTabChange }) => {
     return (
         <div className="py-4 sm:py-8">
             <div className="flex items-center justify-center mt-4 overflow-x-auto">
-                <div className="relative p-1 rounded-full tab_container  w-full max-w-full lg:max-w-[890px] mx-auto">
+                <div className="relative p-1 rounded-full tab_container  w-[780px] max-w-full lg:max-w-[890px] mx-auto">
                     <div className="flex tab_inner space-x-2">
                         {Object.keys(Tabmenus).map((tabName, index) => (
                             <button

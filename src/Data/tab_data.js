@@ -41,6 +41,12 @@ import slot_three from "../images/category_names/logos/slot/KA.png";
 import slot_four from "../images/category_names/logos/slot/PG.png";
 import slot_five from "../images/category_names/logos/slot/SP.png";
 
+import gamesG_one from "../images/category_names/logos/game/AX.png";
+import gamesG_two from "../images/category_names/logos/game/CO9.png";
+import gamesG_three from "../images/category_names/logos/game/SP.png";
+
+import fishing_one from "../images/category_names/logos/fishing/DR white logo.png";
+
 import cock_one from "../images/category_names/logos/cockgame/Cockfight.png";
 // 'Promotions': {
 //         name: 'Popular',
@@ -80,25 +86,25 @@ export const tabmenus = {
             {
                 name: 'Game 1',
                 text: 'asdadsadsa',
-                image: popular_image,
+                image: gamesG_one,
                 tag: null,
             },
             {
                 name: 'Game 2',
                 text: 'asdadsadsa',
-                image: popular_image,
+                image: slot_one,
                 tag: null,
             },
             {
                 name: 'Game 3',
                 text: 'asdadsadsa',
-                image: popular_image,
+                image: live_three,
                 tag: null,
             },
             {
                 name: 'Game 4',
                 text: 'asdadsadsa',
-                image: popular_image,
+                image: slot_three,
                 tag: null,
             }
         ],
@@ -138,15 +144,44 @@ export const tabmenus = {
         items:[{
                 name: 'Game 4',
                 text: '2024-10-25',
-                image: live_image,
+                image: live_one,
                 image_mobile: mobile_banner_sample,
             },
             {
                 name: 'Electronic Game 2',
                 text: '2024-10-25',
-                image: game_two,
+                image: live_two,
                 image_mobile: mobile_banner_sample,
             }
+            ,
+            {
+                name: 'Electronic Game 2',
+                text: '2024-10-25',
+                image: live_three,
+                image_mobile: mobile_banner_sample,
+            }
+            ,
+            {
+                name: 'Electronic Game 2',
+                text: '2024-10-25',
+                image: live_four,
+                image_mobile: mobile_banner_sample,
+            }
+            ,
+            {
+                name: 'Electronic Game 2',
+                text: '2024-10-25',
+                image: live_five,
+                image_mobile: mobile_banner_sample,
+            }
+            ,
+            {
+                name: 'Electronic Game 2',
+                text: '2024-10-25',
+                image: live_six,
+                image_mobile: mobile_banner_sample,
+            }
+            
         ]
     },
     'Slots': {
@@ -195,16 +230,22 @@ export const tabmenus = {
         items: [{
             name: 'Game 4',
             text: '2024-10-25',
-            image: game_image,
+            image: gamesG_one,
             image_mobile: mobile_banner_sample,
 
         },
-            {
-                name: 'Chess 2',
-                text: '2024-10-25',
-                image: game_three,
-                image_mobile: mobile_banner_sample,
-            }
+        {
+            name: 'Chess 2',
+            text: '2024-10-25',
+            image: gamesG_two,
+            image_mobile: mobile_banner_sample,
+        },
+        {
+            name: 'Chess 2',
+            text: '2024-10-25',
+            image: gamesG_three,
+            image_mobile: mobile_banner_sample,
+        }
         ]
     },
     'Cockfight': {
@@ -230,13 +271,13 @@ export const tabmenus = {
         items: [{
                     name: 'Game 4',
                     text: '2024-10-25',
-                    image: tables_image,
+                    image: slot_one,
                     image_mobile: mobile_banner_sample,
                 },
                 {
                     name: 'Fishing 2',
                     text: '2024-10-25',
-                    image: game_two,
+                    image: gamesG_two,
                     image_mobile: mobile_banner_sample,
             }
         ]
@@ -249,15 +290,10 @@ export const tabmenus = {
         items: [{
                 name: 'Game 4',
                 text: '2024-10-25',
-                image: fishing_image,
-                image_mobile: mobile_banner_sample,
-            },
-            {
-                name: 'Fishing 2',
-                text: '2024-10-25',
-                image: game_two,
+                image: fishing_one,
                 image_mobile: mobile_banner_sample,
             }
+            
         ]
     },
 };

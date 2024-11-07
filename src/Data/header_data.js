@@ -26,6 +26,14 @@ import slot_three from "../images/games/KA Gaming.png";
 import slot_four from "../images/games/PG Gaming.png";
 import slot_five from "../images/games/Spadegaming.png";
 
+import table_one from "../images/games/JILIG.png";
+import table_two from "../images/games/Kingmaker.png";
+import table_three from "../images/games/KA GamingG.png";
+
+import fishing_one from "../images/games/JL.png";
+import fishing_two from "../images/games/SP.png";
+import fishing_three from "../images/games/DR.png";
+
 import cock_one from "../images/games/Cockfight.png";
 export const submenus = {
     'Popular': {
@@ -35,7 +43,7 @@ export const submenus = {
             {
                 name: 'Game 1',
                 text: '2024-10-25',
-                image: game_one,
+                image: games_one,
                 image_mobile: mobile_banner_sample,
                 link: 'https://example.com/game1',
             },
@@ -212,13 +220,19 @@ export const submenus = {
             {
                 name: 'Fishing 1',
                 text: '2024-10-25',
-                image: game_one,
+                image: table_one,
                 image_mobile: mobile_banner_sample,
             },
             {
                 name: 'Fishing 2',
                 text: '2024-10-25',
-                image: game_two,
+                image: table_two,
+                image_mobile: mobile_banner_sample,
+            },
+            {
+                name: 'Fishing 2',
+                text: '2024-10-25',
+                image: table_three,
                 image_mobile: mobile_banner_sample,
             }
         ]
@@ -230,13 +244,20 @@ export const submenus = {
             {
                 name: 'Fishing 1',
                 text: '2024-10-25',
-                image: game_one,
+                image: fishing_one,
                 image_mobile: mobile_banner_sample,
             },
             {
                 name: 'Fishing 2',
                 text: '2024-10-25',
-                image: game_two,
+                image: fishing_two,
+                image_mobile: mobile_banner_sample,
+            }
+            ,
+            {
+                name: 'Fishing 2',
+                text: '2024-10-25',
+                image: fishing_three,
                 image_mobile: mobile_banner_sample,
             }
         ]
@@ -245,10 +266,6 @@ export const submenus = {
         name: 'Sponsor',
         link: "/sponsor",
         items: []
-    },
-    'News':{
-        name: 'News',
-        link: "",
-        items: []
-    },
+    }
+    
 };

@@ -16,8 +16,7 @@ const ImageColumn = ({activeTab}) => {
                                 {Category.text}
                             </p>
 
-                            <div className="grid grid-cols-2 gap-4 py-8 justify-items-center sm:flex sm:gap-4 sm:py-8 sm:justify-center lg:justify-start xl:justify-start 
-                                            md:grid-cols-3 lg:grid-cols-4">
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 py-8 w-full justify-items-center  sm:gap-4 sm:py-8 sm:justify-center lg:justify-start xl:justify-start ">
                                 {items.map((item, index) => (
                                     <button className="game_btn" key={index}>
                                         {item.tag != null && (
