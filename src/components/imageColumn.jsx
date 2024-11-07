@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import { Tabmenus } from "../Data/index";
-import cap_games from "../images/category_names/GAMES.png";
-
 
 const ImageColumn = ({activeTab}) => {
     const Category = Tabmenus[activeTab] || null;
@@ -9,28 +7,25 @@ const ImageColumn = ({activeTab}) => {
 
     return (
         <div className="py-8 px-4 md:px-8 lg:px-16 xl:px-16 grid grid-cols-1 lg:grid-cols-4 gap-4">
-
-
                 <>
                     <div
                         className="text-white flex flex-col items-center lg:items-start space-y-4 lg:space-y-8 px-4 md:px-8 lg:px-0 xl:px-16 col-span-2 ">
-                        {/* Logo and Title */}
-                        <div className="text-center lg:text-left ">
-                            <img src={Category.image} className="mx-auto sm:mx-auto lg:mx-0 xl:mx-0"/>
+                        <div className="text-center lg:text-left ml-0 sm:ml-0 lg:ml-0 xl:ml-0">
+                            <img src={Category.image} className="max-w-64 max-h-24 mx-auto sm:mx-auto lg:mx-0 xl:mx-0"/>
                             <p className="text-center lg:text-left max-w-md lg:max-w-lg text-gray-300 py-4">
                                 {Category.text}
                             </p>
 
-                            <div
-                                className="flex gap-4 py-8 justify-center sm:justify-center md:justify-center lg:justify-start xl:justify-start">
-
+                            <div className="grid grid-cols-2 gap-4 py-8 justify-items-center sm:flex sm:gap-4 sm:py-8 sm:justify-center lg:justify-start xl:justify-start 
+                                            md:grid-cols-3 lg:grid-cols-4">
                                 {items.map((item, index) => (
-                                    <button className="game_btn">
-                                        <div className="tag_limit">Limit</div>
-                                        1
+                                    <button className="game_btn" key={index}>
+                                        {item.tag != null && (
+                                            <div className="tag_limit">Limit</div>
+                                        )}
+                                        <img src={item.image} className='w-12' />
                                     </button>
                                 ))}
-
                             </div>
                         </div>
                     </div>

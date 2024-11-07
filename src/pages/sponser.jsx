@@ -3,6 +3,7 @@ import bg_image from "../images/sponsor/back-top.jpg";
 import logo from "../images/logo/logo-white.webp";
 import { FaFacebook, FaTwitter, FaTelegram, FaWhatsapp,   } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Header } from '../components';
 
 //intro images
 import intro_image_one from "../images/sponsor/o1.jpg";
@@ -85,12 +86,13 @@ const Sponsor = () => {
 
     return (
         <>
+        <Header/>
             <div
                 className="w-screen h-screen overflow-hidden relative before:block before:absolute before:bg-black before:h-full before:w-full before:top-0 before:left-0 before:z-10 before:opacity-30">
                 <img src={bg_image} className="absolute top-0 left-0 min-h-full object-cover" alt="" />
 
                 {/* Fixed Navbar with Glass Effect */}
-                <div
+                {/* <div
                     className="fixed max-w-screen mx-auto top-0 left-0 w-full z-30 bg-white/20 backdrop-blur-lg py-3 px-4 md:px-6 lg:px-24 xl:px-72 flex justify-between items-center">
                     <img src={logo} alt="Logo" onClick={()=> ( window.location.href="/")}  className="h-12 md:h-16 cursor-pointer"/>
 
@@ -104,7 +106,7 @@ const Sponsor = () => {
                         <FaWhatsapp
                             className="cursor-pointer hover:opacity-80 hover:text-white text-themeYellow text-2xl md:text-3xl"/>
                     </div>
-                </div>
+                </div> */}
 
                 {/* Scroll Button */}
                 <button

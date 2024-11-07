@@ -24,6 +24,52 @@ import cap_cockfight from "../images/category_names/COCKFIGHT1.png";
 import cap_table from "../images/category_names/TABLES1.png";
 import cap_fishing from "../images/category_names/FISHING1.png";
 
+import sport_one from "../images/category_names/logos/9-wickets.png";
+import sport_two from "../images/category_names/logos/SABA.png";
+import sport_three from "../images/category_names/logos/getimgs.png";
+
+import live_one from '../images/category_names/logos/AG.png';
+import live_two from '../images/category_names/logos/EV.png';
+import live_three from '../images/category_names/logos/MG.png';
+import live_four from '../images/category_names/logos/PL.png';
+import live_five from '../images/category_names/logos/SA.png';
+import live_six from '../images/category_names/logos/SX.png';
+
+import slot_one from "../images/category_names/logos/slot/JDB.png";
+import slot_two from "../images/category_names/logos/slot/JL.png";
+import slot_three from "../images/category_names/logos/slot/KA.png";
+import slot_four from "../images/category_names/logos/slot/PG.png";
+import slot_five from "../images/category_names/logos/slot/SP.png";
+
+import cock_one from "../images/category_names/logos/cockgame/Cockfight.png";
+// 'Promotions': {
+//         name: 'Popular',
+//         image: cap_promotion,
+//         ColumnImage: promotion_image,
+//         text: 'Take advantage of exciting promotions designed to boost your gaming experience! Enjoy special bonuses, exclusive rewards, and limited-time offers that give you more ways to play, win, and enjoy all the action.',
+//         items: [
+//             {
+//                 name: 'Game 4',
+//                 text: '2024-10-25',
+//                 image: promotion_image,
+//                 image_mobile: mobile_banner_sample,
+
+//             },
+//             {
+//                 name: 'Sport 2',
+//                 text: '2024-10-25',
+//                 image: game_one,
+//                 image_two: mobile_banner_sample,
+//             },
+//             {
+//                 name: 'Sport 3',
+//                 text: '2024-10-25',
+//                 image: game_one,
+//                 image_mobile: mobile_banner_sample,
+//             }
+//         ]
+//     },
+
 export const tabmenus = {
     'Popular': {
         name: 'Popular',
@@ -57,50 +103,31 @@ export const tabmenus = {
             }
         ],
     },
-    'Promotions': {
-        name: 'Popular',
-        image: cap_promotion,
-        ColumnImage: promotion_image,
-        text: 'Take advantage of exciting promotions designed to boost your gaming experience! Enjoy special bonuses, exclusive rewards, and limited-time offers that give you more ways to play, win, and enjoy all the action.',
-        items: [
-            {
-                name: 'Game 4',
-                text: '2024-10-25',
-                image: promotion_image,
-                image_mobile: mobile_banner_sample,
-
-            },
-            {
-                name: 'Sport 2',
-                text: '2024-10-25',
-                image: game_one,
-                image_two: mobile_banner_sample,
-            },
-            {
-                name: 'Sport 3',
-                text: '2024-10-25',
-                image: game_one,
-                image_mobile: mobile_banner_sample,
-            }
-        ]
-    },
     'Sports': {
         name: 'Popular',
         image: cap_sports,
         ColumnImage: sport_image,
         text: 'Experience the world’s most comprehensive coverage of sports events from every corner of the globe. Enjoy a wide range of dynamic gameplay,  bringing you thrilling sports betting options that make it easy to place bets and enjoy the excitement.',
-        items: [{
-                name: 'Game 4',
+        items: [
+            {
+                name: '9 Wickets',
+                text: '',
+                image: sport_one ,
+                tag: null,
+            },
+            {
+                name: 'Real Man Game 3',
                 text: '2024-10-25',
-                image: sport_image ,
-                image_mobile: mobile_banner_sample,
+                image: sport_three,
+                tag: null,
             },
             {
                 name: 'Real Man Game 2',
                 text: '2024-10-25',
-                image: game_one,
-                image_mobile: mobile_banner_sample,
+                image: sport_two,
+                tag: null,
             }
+            
         ]
     },
     'Live': {
@@ -128,23 +155,36 @@ export const tabmenus = {
         ColumnImage: slot_image,
         text: 'Discover the thrill of online slots with vibrant graphics, exciting themes, and endless chances to win big. Spin the reels on a variety of games   and experience fast-paced, rewarding action anytime, anywhere.',
         items: [{
-            name: 'Game 4',
+            name: 'Slot 1',
             text: '2024-10-25',
-            image: slot_image,
+            image: slot_one,
             image_mobile: mobile_banner_sample,
         },
             {
-                name: 'Lottery 2',
+                name: 'Slot 2',
                 text: '2024-10-25',
-                image: game_one,
+                image: slot_two,
                 image_mobile: mobile_banner_sample,
             },
             {
-                name: 'Lottery 3',
+                name: 'slot 3',
                 text: '2024-10-25',
-                image: game_four,
+                image: slot_three,
+                image_mobile: mobile_banner_sample,
+            },
+            {
+                name: 'slot 4',
+                text: '2024-10-25',
+                image: slot_four,
+                image_mobile: mobile_banner_sample,
+            },
+            {
+                name: 'slot 5',
+                text: '2024-10-25',
+                image: slot_five,
                 image_mobile: mobile_banner_sample,
             }
+            
         ]
     },
     'Games': {
@@ -173,18 +213,13 @@ export const tabmenus = {
         ColumnImage: cock_image,
         text: 'Experience the thrill of traditional cockfight gaming, where strategy and excitement come together in a dynamic arena. Watch live matches, place your bets, and feel the rush of real-time action as you cheer for your champion.',
         items: [{
-            name: 'Game 4',
+            name: 'cock 1',
             text: '2024-10-25',
-            image: cock_image,
+            image: cock_one,
             image_mobile: mobile_banner_sample,
 
-            },
-            {
-            name: 'Fishing 2',
-            text: '2024-10-25',
-            image: game_two,
-            image_mobile: mobile_banner_sample,
             }
+    
         ]
     },
     'Tables': {

@@ -69,7 +69,7 @@ const Header = () => {
             <nav className="top-0 nav_bar_wrap bg-blue-800  shadow-lg">
                 <div className="nav_bar_content flex justify-between px-4 md:px-16 lg:px-8 xl:px-32 2xl:px-14 items-center relative z-40">
                     <div className="flex">
-                        <img src={logo_white} className="w-15 h-12" alt="Logo" />
+                        <img src={logo_white} className="w-15 h-12" alt="Logo" onClick={()=>(window.location.href="/")} />
                         <ul className={`lg:flex space-x-4 hidden ${isMenuOpen ? 'block' : 'hidden'} ml-12 mt-2 absolute md:static left-0 top-full w-full md:w-auto bg-blue-800 md:bg-transparent`}>
                             {Object.keys(Submenu).map((key, index) => {
                                 const submenu = Submenu[key];

@@ -16,9 +16,9 @@ import games_one from "../images/games/Aviatrix.png";
 import games_two from "../images/games/CO9.png";
 import games_three from "../images/games/Spribe.png";
 
-import Sport_one from "../images/games/9Wickets.png";
-import Sport_two from "../images/games/SABA.png";
-import Sport_three from "../images/games/Horsebook.png";
+import Sport_one from "../images/games/V3.png";
+import Sport_two from "../images/games/V2.png";
+import Sport_three from "../images/games/V1.png";
 
 import slot_one from "../images/games/JDB.png";
 import slot_two from "../images/games/JILI.png";
@@ -65,26 +65,7 @@ export const submenus = {
     'Promotions': {
         name: 'Promotions',
         link: null,
-        items: [
-            {
-                name: 'Sport 1',
-                text: '2024-10-25',
-                image: game_four,
-                image_mobile: mobile_banner_sample,
-            },
-            {
-                name: 'Sport 2',
-                text: '2024-10-25',
-                image: game_one,
-                image_two: mobile_banner_sample,
-            },
-            {
-                name: 'Sport 3',
-                text: '2024-10-25',
-                image: game_one,
-                image_mobile: mobile_banner_sample,
-            }
-        ]
+        items: []
     },
     'Sports': {
         name: 'Sports',

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Caption = ({ image }) => {
     return (
-        <div className="text-center w-full py-8 ">
+        <div className="mx-auto text-center w-72 md:w-72 lg:w-full py-8 ">
             <img src={image} className="mx-auto"/>
         </div>
 
