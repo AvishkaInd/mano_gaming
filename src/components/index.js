@@ -5,3 +5,5 @@ export { default as Footer } from "./footer";
 export { default as Cards } from "./serviceCard";
 export { default as DescColumn } from "./aboutColumn";
 export { default as TabContent } from "../components/imageColumn";
+export { default as Announcements } from "../components/announceModel";
+export { default as FloatingButton } from "../components/FloatingButton";

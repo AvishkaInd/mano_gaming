@@ -15,18 +15,19 @@ const TabSlider = ({ onTabChange }) => {
     return (
         <div className="py-4 sm:py-8">
             <div className="flex items-center justify-center mt-4 overflow-x-auto">
-                <div className="relative p-1 rounded-full tab_container  w-[780px] max-w-full lg:max-w-[890px] mx-auto">
+                <div className="relative p-1 rounded-full tab_container">
                     <div className="flex tab_inner space-x-2">
                         {Object.keys(Tabmenus).map((tabName, index) => (
                             <button
                                 key={index}
-                                className={`px-4 py-2 font-medium rounded-full transition duration-300 ${
-                                    activeTab === tabName ? "bg-blue-300 text-blue-900 tab_active" : "text-white"
+                                className={`tab px-4 py-2 font-medium rounded-full transition duration-300 ${
+                                    activeTab === tabName ? "tab_active" : ""
                                 }`}
                                 style={{
                                     backgroundImage: activeTab === tabName ? `url(${button})` : "none",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
+                                    color: activeTab === tabName ? `#fff` : "",
                                 }}
                                 onClick={() => handleTabClick(tabName)}
                             >

@@ -41,38 +41,38 @@ export const submenus = {
         link: null,
         items: [
             {
-                name: 'Game 1',
-                text: '2024-10-25',
+                name: 'Aviator',
+                text: 'Aviator',
                 image: games_one,
                 image_mobile: mobile_banner_sample,
-                link: 'https://example.com/game1',
+                link: 'https://www.top11india.com/games',
             },
             {
-                name: 'Game 2',
-                text: '2024-10-25',
-                image: game_two,
+                name: 'Teen Patti',
+                text: 'Teen Patti',
+                image: fishing_one,
                 image_mobile: mobile_banner_sample,
-                link: 'https://example.com/game2',
+                link: 'https://www.top11india.com/tables',
             },
             {
-                name: 'Game 3',
-                text: '2024-10-25',
-                image: game_three,
+                name: 'Andar Bahar',
+                text: 'Andar Bahar',
+                image: slot_two,
                 image_mobile: mobile_banner_sample,
-                link: 'https://example.com/game3',
+                link: 'https://www.top11india.com/tables',
             },
             {
-                name: 'Game 4',
-                text: '2024-10-25',
-                image: game_four,
+                name: 'Money Coming',
+                text: 'Money Coming',
+                image: table_one,
                 image_mobile: mobile_banner_sample,
-                link: 'https://example.com/game4',
+                link: 'https://www.top11india.com/slots',
             }
         ]
     },
     'Promotions': {
         name: 'Promotions',
-        link: null,
+        link: "/promotion",
         items: []
     },
     'Sports': {
@@ -80,22 +80,25 @@ export const submenus = {
         link: null,
         items: [
             {
-                name: 'Real Man Game 1',
-                text: '2024-10-25',
-                image: Sport_one,
-                image_mobile: mobile_banner_sample,
-            },
-            {
                 name: 'Real Man Game 2',
                 text: '2024-10-25',
                 image: Sport_two,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/sportsbook',
+            },
+            {
+                name: 'Real Man Game 1',
+                text: '2024-10-25',
+                image: Sport_one,
+                image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/sportsbook',
             },
             {
                 name: 'Real Man Game 2',
                 text: '2024-10-25',
                 image: Sport_three,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/sportsbook',
             }
         ]
     },
@@ -108,35 +111,41 @@ export const submenus = {
                 text: '2024-10-25',
                 image: live_one,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/casino',
             },
             {
                 name: 'Chess 2',
                 text: '2024-10-25',
                 image: live_two,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/casino',
             },
             {
                 name: 'Chess 2',
                 text: '2024-10-25',
                 image: live_three,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/casino',
             },{
                 name: 'Chess 2',
                 text: '2024-10-25',
                 image: live_four,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/casino',
             }
             ,{
                 name: 'Chess 2',
                 text: '2024-10-25',
                 image: live_five,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/casino',
             }
             ,{
                 name: 'Chess 2',
                 text: '2024-10-25',
                 image: live_six,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/casino',
             }
         ]
     },
@@ -149,31 +158,35 @@ export const submenus = {
                 text: '2024-10-25',
                 image: slot_one,
                 image_mobile: mobile_banner_sample,
-
+                link:'https://www.top11india.com/slots',
             },
             {
                 name: 'Lottery 2',
                 text: '2024-10-25',
                 image: slot_two,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/slots',
             },
             {
                 name: 'Lottery 3',
                 text: '2024-10-25',
                 image: slot_three,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/slots',
             },
             {
                 name: 'Lottery 3',
                 text: '2024-10-25',
                 image: slot_four,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/slots',
             },
             {
                 name: 'Lottery 3',
                 text: '2024-10-25',
                 image: slot_five,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/slots',
             }
         ]
     },
@@ -186,19 +199,21 @@ export const submenus = {
                 text: '2024-10-25',
                 image: games_one,
                 image_mobile: mobile_banner_sample,
-
+                link:'https://www.top11india.com/games',
             },
             {
                 name: 'Lottery 2',
                 text: '2024-10-25',
                 image: games_two,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/games',
             },
             {
                 name: 'Lottery 3',
                 text: '2024-10-25',
                 image: games_three,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/games',
             }
         ]
     },
@@ -210,6 +225,7 @@ export const submenus = {
                 text: '2024-10-25',
                 image: cock_one,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/cockfight',
             },
         ]
     },
@@ -222,18 +238,21 @@ export const submenus = {
                 text: '2024-10-25',
                 image: table_one,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/tables',
             },
             {
                 name: 'Fishing 2',
                 text: '2024-10-25',
                 image: table_two,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/tables',
             },
             {
                 name: 'Fishing 2',
                 text: '2024-10-25',
                 image: table_three,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/tables',
             }
         ]
     },
@@ -246,12 +265,14 @@ export const submenus = {
                 text: '2024-10-25',
                 image: fishing_one,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/fishing',
             },
             {
                 name: 'Fishing 2',
                 text: '2024-10-25',
                 image: fishing_two,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/fishing',
             }
             ,
             {
@@ -259,6 +280,7 @@ export const submenus = {
                 text: '2024-10-25',
                 image: fishing_three,
                 image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/fishing',
             }
         ]
     },
@@ -266,6 +288,7 @@ export const submenus = {
         name: 'Sponsor',
         link: "/sponsor",
         items: []
-    }
+    },
+
     
 };

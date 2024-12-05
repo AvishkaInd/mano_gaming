@@ -60,7 +60,8 @@ const HomeSlider = () => {
                     {Slides.map((slide, index) => (
                         <SwiperSlide key={index}>
                             <div
-                                className="w-full mt-2 lg:mt-2 h-[250px] sm:h-[350px] md:h-[450px] lg:h-[330px] xl:h-[500px] 2xl:h-[500px]  bg-cover bg-center relative"
+                                className="w-full mt-2 cursor-pointer lg:mt-2 h-[250px] sm:h-[350px] md:h-[450px] lg:h-[330px] xl:h-[500px] 2xl:h-[500px]  bg-cover bg-center relative"
+                                onClick={()=>(window.location.href='https://www.top11india.com/')}
                                 style={{
                                     backgroundImage: `url(${
                                         screenSize === 'mobile' ? slide.image_mobile :
@@ -79,14 +80,13 @@ const HomeSlider = () => {
                 <div className="px-16 w-100 text-start">
 
                     <div
-                        className="inline-block animate-marquee px-16"
+                        className="inline-block animate-marquee px-16 py-2"
                         style={{ animationDuration: "15s" }}
                     >
                         {/* Replace these with your own messages */}
-                        <span className="mx-8">📢 [Notification 1]</span>
-                        <span className="mx-8">📢 [ATM/網銀轉帳維護完成]</span>
-                        <span className="mx-8">📢 [Beware of scams – Do not trust unknown customer service]</span>
-                        <span className="mx-8">📢 [Notification 4]</span>
+                        <span className="mx-8">📢 2024-07-01 &nbsp; Welcome to our website! Best casino games available</span>
+                        <span className="mx-8">📢 Earn Daily Bonuses During the Game time</span>
+
                     </div>
                 </div>
 

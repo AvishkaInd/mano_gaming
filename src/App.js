@@ -4,6 +4,8 @@ import Sponsor from "./pages/sponser";
 import {isMobile} from 'react-device-detect';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Promotions from "./pages/promotions";
+import News from "./pages/news";
 function App() {
     if(!isMobile){
         return(
@@ -11,6 +13,8 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/sponsor" element={<Sponsor />} />
+                    <Route path="/promotion" element={<Promotions />} />
+                    <Route path="/news" element={<News />} />
                 </Routes>
             </Router>
         );

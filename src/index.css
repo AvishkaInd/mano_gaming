@@ -119,20 +119,59 @@ code {
     background: transparent linear-gradient(180deg, rgba(32, 67, 118, .8509803922) 0%, rgba(37, 100, 155, .8509803922) 66%, rgba(53, 141, 200, .8588235294) 100%);
     backdrop-filter: blur(11px);
     -webkit-backdrop-filter: blur(11px);
+    z-index: 0 !important;
 }
 
 
-/* for table*/
+/*.nav_bar_action_list {*/
+/*    position: absolute;*/
+/*    right: 0;*/
+/*    top: 100px;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 60px;*/
+/*    display: block;*/
+/*    overflow: hidden;*/
+/*    background: transparent linear-gradient(180deg, rgba(32, 67, 118, 0.85) 0%, rgba(37, 100, 155, 0.85) 66%, rgba(53, 141, 200, 0.86) 100%);*/
+/*    backdrop-filter: blur(11px);*/
+/*    -webkit-backdrop-filter: blur(11px);*/
+/*    z-index: 80;*/
+/*}*/
 
-.nav_bar_tablet_nav_item_wrapper {
-    background: rgba(80, 80, 80, 0.77);
+/*!* for table*!*/
+
+/*.nav_bar_tablet_nav_item_wrapper {*/
+/*    background: rgba(80, 80, 80, 0.77);*/
+/*}*/
+
+/*.nav_bar_tablet_nav_link_wrapper {*/
+/*    background: var(--yellow-color);*/
+/*    color: var(--blue-color);*/
+/*    ;*/
+/*}*/
+
+
+/*.nav_bar_action_list {*/
+/*    position: absolute;*/
+/*    top: 100px; !* Adjust based on nav bar height *!*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 4px; !* Thickness of the action bar *!*/
+/*    background: transparent linear-gradient(180deg, rgba(32, 67, 118, .8509803922) 0%, rgba(37, 100, 155, .8509803922) 66%, rgba(53, 141, 200, .8588235294) 100%);*/
+/*    z-index: 10;*/
+/*}*/
+
+/* Show full-screen action bar */
+.nav_bar_action_list.show {
+    height: 100%; /* Full height for visible state */
 }
 
-.nav_bar_tablet_nav_link_wrapper {
-    background: var(--yellow-color);
-    color: var(--blue-color);
-    ;
+/* Hide action bar */
+.nav_bar_action_list.hide {
+    height: 0;
 }
+
+
 
 
 /* Basic container styles */
@@ -213,6 +252,39 @@ code {
     margin: 0;
 }
 
+.hover_active_menu:hover{
+    background: linear-gradient(180deg, #f5d300 0%, #f1ee8a 100%);
+}
+.hover_active_menu:hover img {
+    transform: scale(1.1);
+    transition: transform 0.3s ease; /* Smooth scaling transition */
+}
+
+.nav-item{
+  letter-spacing: 1px;
+}
+
+
+.nav-item:after {
+    content: "";
+    position: absolute;
+    left: 5px; /* Adjust according to your needs */
+    right: 5px; /* Adjust according to your needs */
+    bottom: -15px; /* Position at the bottom */
+    height: 4px; /* Height of the underline */
+    border-radius: 2px 2px 0 0; /* Rounded top corners */
+    background: #f5d300; /* Background color */
+    transform: scaleX(0); /* Start with no width */
+    transform-origin: center; /* Center the scale transformation */
+    transition: transform 0.3s ease; /* Smooth transition */
+    z-index: 1; /* Place it above other elements */
+}
+
+.nav-item:hover:after,
+.nav-item.active:after{
+    transform: scaleX(1.1); /* Scale to full width on hover */
+}
+
 
 /* --  HomeSlider --  */
 
@@ -267,7 +339,7 @@ code {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 90%;
+    width: 920px;
 }
 
 .tab_inner {
@@ -276,14 +348,32 @@ code {
     background: linear-gradient(180deg, #104578 0%, #00386d 100%);
     box-shadow: 0 3px 12px #00000026;
     display: flex;
-    overflow-x:auto;
     position: relative;
-    width: 98%;
+    width: 900px;
+}
+
+.tab_inner .tab {
+    width: 140px;
+    height: 50px;
+    border-radius: 25px;
+    line-height: 16px;
+    font-size: 16px;
+    padding: 17px 0;
+    text-align: center;
+    color: #a1c5db;
+    cursor: pointer;
+    z-index: 2;
+    transition: transform .8s ease-in;
+    overflow: hidden
+}
+
+.tab_container .tab_inner .tab:hover {
+    color: #fff
 }
 
 .tab_active {
     color: #fff;
-    min-width: 110px;
+    width: 140px;
     height: 50px;
     border-radius: 25px;
     background-repeat: no-repeat;
@@ -344,7 +434,7 @@ code {
 }
 
 .serviceWrapper:hover {
-    transform: scale(1.05);
+    animation: bounce .5s ease-in-out
 }
 
 .qr_code{
@@ -380,6 +470,9 @@ code {
     transition: background-image .3s ease-in;
     background-image: url(data:image/webp;base64,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)
 }
+.game_btn img {
+    opacity: 0.7;
+}
 
 .game_btn:hover {
     background-image: url(data:image/webp;base64,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);
@@ -387,6 +480,11 @@ code {
     color: #fff;
     animation: bounce .5s ease-in-out
 }
+
+.game_btn:hover img {
+    opacity: 1;
+}
+
 
 @keyframes bounce {
     0% {
@@ -422,4 +520,401 @@ code {
     left: auto;
     right: auto;
     z-index: 1
+}
+
+
+/* Banner container */
+.banner-container {
+    gap: 16px;
+    justify-content: center;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Banner item */
+.banner-item {
+    position: relative;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.banner-image:hover {
+    transform: scale(1.1) rotate(1deg);
+    transition: 0.8s;
+}
+
+.banner-caption {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(86, 86, 86, 0.78);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Popup overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Popup content */
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 900px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+
+}
+
+.content-scroller{
+    max-height: 400px;
+    min-height: 300px;
+    overflow-y:scroll ;
+}
+
+.popup-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.popup-title {
+    font-size: 18px;
+    margin: 16px 0;
+}
+
+.popup-text {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.popup-close-button {
+    border: 1px solid yellow;
+    color: yellow;
+    padding: 10px 20px;
+
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-close-button:hover {
+    background: yellow;
+    color: black;
+}
+
+.banner_header {
+
+    background: linear-gradient(180deg, #4486cc 0%, #60afff 100%);
+    border-radius: 8px 8px 8px 8px;
+
+    align-items: flex-end;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 1px 1px #065f96;
+    color: #fff;
+    transition: all .3s ease-in-out
+}
+
+
+
+.modal_header {
+    width: 100%;
+    position: relative;
+    padding: 15px 30px;
+    font-size: 20px;
+    color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    background: transparent linear-gradient(180deg,#8ee4ff 0%,#3495ff 100%) 0% 0% no-repeat
+}
+
+.float-btn-container {
+    position: fixed;
+    top: 42vh;
+    right: 0;
+    z-index: 12;
+    display: flex;
+    flex-direction: column
+}
+
+
+.float-btn{
+    width: 67px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    background: rgba(79,100,118,.431372549);
+    box-shadow: 0 0 6px #24567229,inset 0 0 2px #fff3;
+    border-radius: 10px 0 0 10px;
+    display: inline-block;
+    transition: all .2s ease-in-out;
+    position: relative;
+    transform: translate(14px);
+    padding: 8px 10px;
+    overflow: hidden;
+    -webkit-user-select: text;
+    user-select: text
+
+}
+
+.float-btn img {
+    width: 22px;
+    height: 22px;
+    display: block;
+    pointer-events: none
+}
+
+
+.float-btn:hover {
+    background: linear-gradient(180deg,#8ee4ff 0%,#3495ff 100%);
+    transform: translate(0);
+    overflow: visible
+}
+
+.float-btn:hover .icon-box {
+    background: linear-gradient(180deg,#3495ff 0%,#8ee4ff 100%);
+    border: 1px solid #fff
+}
+
+
+.float-btn:not(:last-of-type) {
+    margin-bottom: 5px
+}
+
+.hoverOver {
+    font-size: 13px;
+    padding-right: 9px;
+    position: absolute;
+    left: -125px;
+    top: 14px;
+    z-index: 11;
+    cursor: default;
+    opacity: 0;
+    transform: translate(-25px);
+    transition: all 0.3s ease-in-out;
+}
+
+.hoverContent {
+    text-align: center;
+    position: relative;
+    padding: 8px;
+    background: #58c7ff;
+    color: #fff;
+    border-radius: 3px;
+    opacity: .94;
+    text-shadow: 0 1px 1px #258de8;
+    display: block;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.float-btn-container:hover .float-btn {
+    opacity: 1;
+    transform: translate(0);
+}
+
+.float-btn-container:hover .hoverOver {
+    opacity: 1;
+    transform: translate(0px);
+}
+
+
+.hoverContent:after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #58c7ff;
+    padding: 0;
+    top: 11px;
+    transform: rotate(45deg);
+    right: -4px;
+    z-index: 10
+}
+
+.hoverItem{
+    padding: 8px 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    cursor: pointer;
+    color: #fff;
+    background: rgba(125,165,197,.5058823529)
+}
+
+
+.hoverItem:not(:first-of-type):after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 1px;
+    left: 10px;
+    right: 10px;
+    background: rgba(255,255,255,.15)
+}
+
+.hoverItem:last-of-type {
+    border-radius: 0 0 3px 3px
+}
+
+.hoverItem:hover {
+    background: #58c7ff;
+    color: #fff!important
+}
+
+.hoverItem img{
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 0 auto
+}
+
+.hoverItem span{
+    font-size: 13px;
+    word-wrap: break-word;
+    margin-bottom: 6px;
+    text-shadow: none
+}
+
+.serviceHover{
+
+    top: 0!important;
+    z-index: 11
+}
+
+.service_content{
+    padding: 0!important;
+    text-align: center;
+    background: transparent!important
+}
+
+.service_content p{
+    border-radius: 3px 3px 0 0;
+    color: #fff;
+    background: #58c7ff;
+    padding: 8px ;
+    border-bottom: 1px solid rgba(255,255,255,.15)
+}
+
+
+
+.tab-button {
+    position: relative;
+    padding-bottom: 0.5rem;
+    transition: color 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.875rem; /* Adjust font size as needed */
+}
+
+/* Active tab color */
+.tab-button .active {
+    color: #ffffff !important; /* White color for active tab text */
+}
+
+/* Bottom border for the active tab */
+.tab-button .active:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 80%; /* Adjust width as needed */
+    background-color: #63B3ED; /* Light blue color for border */
+    border-radius: 1px;
+    z-index: 999;
+    color: #fff;
+}
+
+/* Optional: Icon styling for each tab */
+.tab-button .icon {
+    font-size: 1.5rem; /* Adjust icon size as needed */
+}
+
+
+.tab-button:after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    bottom: -10px; /* Position at the bottom */
+    height: 3px; /* Height of the underline */
+    border-radius: 2px 2px 0 0; /* Rounded top corners */
+    background: #58c7ff; /* Background color */
+    transform: scaleX(0); /* Start with no width */
+    transform-origin: center; /* Center the scale transformation */
+    transition: transform 0.3s ease; /* Smooth transition */
+    z-index: 1000; /* Place it above other elements */
+}
+
+.tab-button:hover:after,
+.tab-button.active:after{
+    transform: scaleX(1.1); /* Scale to full width on hover */
+}
+
+
+
+@keyframes backgroundMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.moving-background {
+    background: linear-gradient(270deg, rgba(16, 42, 73, 0.23), rgb(8, 52, 155));
+    background-size: 400% 400%;
+    animation: backgroundMove 15s ease infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotating-text {
+    position: absolute;
+    animation: rotate 10s linear infinite; /* Adjust duration for speed */
+    transform-origin: center;
+}
+
+.parallax {
+    background-attachment: fixed;
+    background-size: cover;
 }
