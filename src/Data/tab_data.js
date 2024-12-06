@@ -27,6 +27,7 @@ import cap_fishing from "../images/category_names/FISHING1.png";
 import sport_one from "../images/category_names/logos/9-wickets.png";
 import sport_two from "../images/category_names/logos/SABA.png";
 import sport_three from "../images/category_names/logos/getimgs.png";
+import sport_four from "../images/category_names/logos/sport/s-logo1.png";
 
 import live_one from '../images/category_names/logos/AG.png';
 import live_two from '../images/category_names/logos/EV.png';
@@ -50,33 +51,6 @@ import fishing_one from "../images/category_names/logos/fishing/DR white logo.pn
 import table_one from "../images/category_names/logos/Kingmaker.png";
 
 import cock_one from "../images/category_names/logos/cockgame/Cockfight.png";
-// 'Promotions': {
-//         name: 'Popular',
-//         image: cap_promotion,
-//         ColumnImage: promotion_image,
-//         text: 'Take advantage of exciting promotions designed to boost your gaming experience! Enjoy special bonuses, exclusive rewards, and limited-time offers that give you more ways to play, win, and enjoy all the action.',
-//         items: [
-//             {
-//                 name: 'Game 4',
-//                 text: '2024-10-25',
-//                 image: promotion_image,
-//                 image_mobile: mobile_banner_sample,
-
-//             },
-//             {
-//                 name: 'Sport 2',
-//                 text: '2024-10-25',
-//                 image: game_one,
-//                 image_two: mobile_banner_sample,
-//             },
-//             {
-//                 name: 'Sport 3',
-//                 text: '2024-10-25',
-//                 image: game_one,
-//                 image_mobile: mobile_banner_sample,
-//             }
-//         ]
-//     },
 
 export const tabmenus = {
     'Popular': {
@@ -142,6 +116,14 @@ export const tabmenus = {
                 tag: null,
                 link:'https://www.top11india.com/sportsbook',
             }
+            ,
+            {
+                name: 'Real Man Game 3',
+                text: '2024-10-25',
+                image: sport_four,
+                tag: null,
+                link:'https://www.top11india.com/sportsbook',
+            }
             
         ]
     },
@@ -190,7 +172,7 @@ export const tabmenus = {
             }
             ,
             {
-                name: 'Electronic Game 2',
+                name: 'Electronic Game 3',
                 text: '2024-10-25',
                 image: live_six,
                 image_mobile: mobile_banner_sample,

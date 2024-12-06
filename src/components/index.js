@@ -7,3 +7,5 @@ export { default as DescColumn } from "./aboutColumn";
 export { default as TabContent } from "../components/imageColumn";
 export { default as Announcements } from "../components/announceModel";
 export { default as FloatingButton } from "../components/FloatingButton";
+export { default as BlogCard } from "./blogCard";
+export { default as BlogMain } from "./mainBlog";

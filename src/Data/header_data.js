@@ -19,6 +19,7 @@ import games_three from "../images/games/Spribe.png";
 import Sport_one from "../images/games/V3.png";
 import Sport_two from "../images/games/V2.png";
 import Sport_three from "../images/games/V1.png";
+import sport_four from "../images/games/Lucky-Sports.png"
 
 import slot_one from "../images/games/JDB.png";
 import slot_two from "../images/games/JILI.png";
@@ -99,7 +100,16 @@ export const submenus = {
                 image: Sport_three,
                 image_mobile: mobile_banner_sample,
                 link:'https://www.top11india.com/sportsbook',
-            }
+            },
+            {
+            
+                name: 'Real Man Game 4',
+                text: '2024-10-25',
+                image: sport_four,
+                image_mobile: mobile_banner_sample,
+                link:'https://www.top11india.com/sportsbook',
+            },
+            
         ]
     },
     'Live': {
@@ -290,5 +300,9 @@ export const submenus = {
         items: []
     },
 
-    
+    'News':{
+        name: 'News',
+        link: "/news",
+        items: []
+    },
 };

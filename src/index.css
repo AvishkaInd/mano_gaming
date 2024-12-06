@@ -918,3 +918,10 @@ code {
     background-attachment: fixed;
     background-size: cover;
 }
+
+.blog-content{
+    background: linear-gradient(180deg, rgba(32, 67, 118, .8509803922) 0%, rgba(37, 100, 155, .8509803922) 66%, rgba(53, 141, 200, .8588235294) 100%);
+}
+.blog-header-bg{
+    background: linear-gradient(rgba(18, 144, 255, 0.851) 0%, rgba(53, 141, 200, .8588235294) 100%);
+}
